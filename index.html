@@ -786,7 +786,7 @@
 
         // Minimal CSV parser (handles quoted fields)
         function parseCSV(text) {
-            return text.trim().split('\n').map(line => {
+            return text.trim().replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n').map(line => {
                 const fields = [];
                 let cur = '', inQuote = false;
                 for (let i = 0; i < line.length; i++) {
