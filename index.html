@@ -659,7 +659,7 @@
             <h2 class="section-title">About</h2>
             <div class="about-text">
                 <p>Honey Trap is a three-piece band from Leeds. <br>
-                    They enjoy writing music and drinking at The Duck and Drake. <br>
+                    They enjoy making music and drinking at The Duck and Drake. <br>
                     Owen - Vocals, Drums <br>
                     Aidan - Bass, BVs <br>
                     Ben - Guitar, BVs
@@ -722,7 +722,7 @@
             const listEl    = document.getElementById('tour-list');
 
             try {
-                const res  = await fetch(SHEET_CSV_URL);
+                const res = await fetch(SHEET_CSV_URL, { mode: 'cors' });
                 const text = await res.text();
 
                 // Parse CSV (handles quoted fields with commas inside)
@@ -786,7 +786,7 @@
 
         // Minimal CSV parser (handles quoted fields)
         function parseCSV(text) {
-            return text.trim().replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n').map(line => {
+            return text.trim().split('\n').map(line => {
                 const fields = [];
                 let cur = '', inQuote = false;
                 for (let i = 0; i < line.length; i++) {
