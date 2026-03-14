@@ -743,6 +743,20 @@
                 const today = new Date();
                 today.setHours(0, 0, 0, 0);
 
+                function parseDate(str) {
+                    if (!str) return null;
+                    // Try native parse (works for ISO and "Month DD YYYY")
+                    let d = new Date(str);
+                    if (!isNaN(d)) return d;
+                    // Try DD/MM/YYYY or DD-MM-YYYY
+                    const dmy = str.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/);
+                    if (dmy) return new Date(`${dmy[3]}-${dmy[2].padStart(2,'0')}-${dmy[1].padStart(2,'0')}`);
+                    // Try DD Mon YYYY  e.g. "14 Jun 2025"
+                    const dMonY = str.match(/^(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})$/);
+                    if (dMonY) return new Date(`${dMonY[2]} ${dMonY[1]} ${dMonY[3]}`);
+                    return null;
+                }
+
                 // Filter to upcoming dates only (or show all if dates aren't parseable)
                 const upcoming = rows.slice(1).filter(row => {
                     if (!row[dateIdx]) return false;
