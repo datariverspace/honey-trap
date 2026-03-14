@@ -4,6 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Honey Trap</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+
+    <!-- SEO -->
+    <meta name="description" content="Honey Trap are a three-piece band from Leeds. Listen to their debut album 'You Never Hear The Javelin That Kills You', buy merch, and find upcoming gigs.">
+    <meta name="keywords" content="Honey Trap, Honey Trap band, Leeds band, Leeds indie band, Leeds music, indie rock Leeds, Honey Trap gigs, Honey Trap tour, You Never Hear The Javelin That Kills You">
+    <meta name="author" content="Honey Trap">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://honeytrap.band/">
+
+    <!-- Open Graph (social sharing) -->
+    <meta property="og:title" content="Honey Trap | Leeds Band">
+    <meta property="og:description" content="Three-piece band from Leeds. Debut album out now.">
+    <meta property="og:image" content="assets/javelinalbum.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://honeytrap.band/">
+
+    <!-- JSON-LD structured data for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicGroup",
+      "name": "Honey Trap",
+      "description": "Three-piece indie band from Leeds, UK.",
+      "genre": ["Indie", "Rock"],
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "Leeds, UK"
+      },
+      "url": "https://honeytrapsounds.com",
+      "sameAs": [
+        "https://instagram.com/honeytrapsounds",
+        "https://open.spotify.com/artist/3urpGnVmKgiaJygp1YAKNz",
+        "https://honeytrapsounds.bandcamp.com"
+      ]
+    }
+    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Old+Standard+TT:wght@400;700&display=swap');
         
@@ -252,7 +291,6 @@
             margin-top: 20px;
         }
 
-        /* ── TOUR DATES SECTION ── */
         #tour {
             background-color: var(--paper);
             padding: 100px 30px;
@@ -263,6 +301,7 @@
         .tour-content {
             max-width: 700px;
             margin: 0 auto;
+            text-align: center;
         }
 
         .tour-table {
@@ -278,6 +317,7 @@
             padding: 22px 0;
             border-bottom: 1px solid rgba(139, 111, 71, 0.3);
             transition: background 0.2s ease;
+            text-align: left;
         }
 
         .tour-row:first-child {
@@ -295,12 +335,14 @@
             color: var(--gold);
             letter-spacing: 0.5px;
             white-space: nowrap;
+            text-align: left;
         }
 
         .tour-info {
             display: flex;
             flex-direction: column;
             gap: 3px;
+            text-align: center;
         }
 
         .tour-event {
@@ -359,8 +401,6 @@
             padding: 40px 0;
             display: none;
         }
-
-        /* ── END TOUR DATES ── */
         
         /* About Section */
         .about {
@@ -540,10 +580,16 @@
                 grid-template-columns: 1fr;
                 gap: 8px;
                 padding: 18px 0;
+                text-align: center;
+            }
+
+            .tour-date {
+                text-align: center;
             }
 
             .tour-ticket-btn {
                 width: fit-content;
+                margin: 0 auto;
             }
         }
     </style>
@@ -554,7 +600,7 @@
             <a href="#" class="logo">HONEY TRAP</a>
             <ul class="nav-links">
                 <li><a href="#album">Album</a></li>
-                <li><a href="#tour">Tour</a></li>
+                <li><a href="#tour">Gigs</a></li>
                 <li><a href="#merch">Merch</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -564,7 +610,7 @@
     
     <section class="hero">
         <div class="hero-image">
-            <img src="assets/website1.png" alt="Honey Trap" class="background-image">
+            <img src="assets/jev-high-res.jpg" alt="Honey Trap" class="background-image">
             <div class="hero-overlay">
                 <h1 class="band-name">HONEY TRAP</h1>
             </div>
@@ -583,16 +629,19 @@
         </div>
     </section>
 
-    <!-- ── TOUR DATES SECTION ── -->
+    <!-- ── GIG DATES SECTION ── -->
     <section id="tour">
         <div class="tour-content">
-            <h2 class="section-title">Tour Dates</h2>
+            <h2 class="section-title">Gig Dates</h2>
+            <div class="tour-text">
+            <p>For busking dates, keep an eye on our socials for specific times and places.</p>
+            </div>
             <div id="tour-loading">Loading dates...</div>
-            <div id="tour-empty">No upcoming dates right now — check back soon.</div>
+            <div id="tour-empty">No upcoming gigs right now — check back soon.</div>
             <div id="tour-list"></div>
         </div>
     </section>
-    <!-- ── END TOUR DATES ── -->
+    <!-- ── END GIG DATES ── -->
 
     <section id="merch" class="album-section">
         <h2 class="section-title">Merchandise</h2>
@@ -613,6 +662,7 @@
             <h2 class="section-title">About</h2>
             <div class="about-text">
                 <p>Honey Trap is a three-piece band from Leeds. <br>
+                    When they're not playing music they enjoy drinking a Saltaire blonde at The Duck and Drake. <br>
                     Owen - Vocals, Drums <br>
                     Aidan - Bass, BVs <br>
                     Ben - Guitar, BVs
@@ -625,13 +675,13 @@
       <div class="contact-content">
         <h2 class="section-title">Contact</h2>
         <div class="contact-info">
-            <p class="subscribe-text">Subscribe to keep informed of releases and tour dates.</p>
+            <p class="subscribe-text">Subscribe to keep informed of releases and gig dates.</p>
             <form id="subscribe-form">
                 <input type="email" id="email-input" name="email" placeholder="Enter your email" required>
                 <button type="submit" class="notify-button">Subscribe</button>
             </form>
             <p class="enquiries">For all other enquiries:<br>
-            <a href="mailto:honeytrapsounds@gmail.com">honeytrapsounds@gmail.com</a></p>
+            <a href="/cdn-cgi/l/email-protection#aec6c1c0cbd7dadccfdeddc1dbc0caddeec9c3cfc7c280cdc1c3"><span class="__cf_email__" data-cfemail="ddb5b2b3b8a4a9afbcadaeb2a8b3b9ae9dbab0bcb4b1f3beb2b0">[email&#160;protected]</span></a></p>
         </div>
       </div>
     </section>
@@ -665,10 +715,10 @@
         </table>
     </footer>
     
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // ── TOUR DATES FROM GOOGLE SHEETS ──
         // Replace this URL with your own (see instructions below)
-        const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/11gUte5KqPRDkyx4M_YAyT3YBZJvNTKzE9XQ-KX8G-FI/export?format=csv&gid=0';
+        const SHEET_CSV_URL = 'YOUR_GOOGLE_SHEET_CSV_URL_HERE';
 
         async function loadTourDates() {
             const loadingEl = document.getElementById('tour-loading');
@@ -788,7 +838,7 @@
                 fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                     .then(response => {
                         if (response.ok) {
-                            alert(`Thank you for subscribing! HT x`);
+                            alert(`Thank you, speak soon! HT x`);
                             emailInput.value = '';
                         } else {
                             alert('There was an error with your subscription. Please try again.');
@@ -797,13 +847,3 @@
                     .catch(error => {
                         console.error('Error!', error.message);
                         alert('There was an error with your subscription. Please try again.');
-                    })
-                    .finally(() => {
-                        submitButton.textContent = 'Subscribe';
-                        submitButton.disabled = false;
-                    });
-            }
-        });
-    </script>
-</body>
-</html>
