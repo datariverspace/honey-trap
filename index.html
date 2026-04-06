@@ -633,8 +633,9 @@
     <section id="tour">
         <div class="tour-content">
             <h2 class="section-title">Gig Dates</h2>
-            <p class="tour-info">  For busking dates, the ticket button will take you to our intended location. <br>
-                                    Keep an eye on our socials for exact times as these vary with the weather!
+            <p class="tour-info">   <br>
+                                    Keep an eye on our socials for exact busking times as these vary with the weather!
+                                    <br>
             </p>
             <div id="tour-loading">Loading dates...</div>
             <div id="tour-empty">No upcoming gigs right now — check back soon.</div>
@@ -716,99 +717,81 @@
     </footer>
     
     <script>
-        // ── TOUR DATES FROM GOOGLE SHEETS ──
-        const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/11gUte5KqPRDkyx4M_YAyT3YBZJvNTKzE9XQ-KX8G-FI/export?format=csv&gid=0';
-
-        async function loadTourDates() {
-            const loadingEl = document.getElementById('tour-loading');
-            const emptyEl   = document.getElementById('tour-empty');
-            const listEl    = document.getElementById('tour-list');
-
-            try {
-                const res = await fetch(SHEET_CSV_URL, { mode: 'cors' });
-                const text = await res.text();
-
-                // Parse CSV (handles quoted fields with commas inside)
-                const rows = parseCSV(text);
-                if (rows.length < 2) { showEmpty(); return; }
-
-                // First row = headers: Date, Event, Location, Tickets
-                const headers = rows[0].map(h => h.trim().toLowerCase());
-                const dateIdx     = headers.indexOf('date');
-                const eventIdx    = headers.indexOf('event');
-                const locationIdx = headers.indexOf('location');
-                const ticketsIdx  = headers.indexOf('tickets');
-
-                const today = new Date();
-                today.setHours(0, 0, 0, 0);
-
-                // Filter to upcoming dates only (or show all if dates aren't parseable)
-                const upcoming = rows.slice(1).filter(row => {
-                    if (!row[dateIdx]) return false;
-                    const d = new Date(row[dateIdx]);
-                    return isNaN(d) || d >= today; // keep if future or unparseable
-                });
-
-                if (upcoming.length === 0) { showEmpty(); return; }
-
-                loadingEl.style.display = 'none';
-
-                upcoming.forEach(row => {
-                    const date     = row[dateIdx]     || '';
-                    const event    = row[eventIdx]    || '';
-                    const location = row[locationIdx] || '';
-                    const tickets  = row[ticketsIdx]  || '';
-
-                    const ticketHTML = tickets
-                        ? `<a href="${escHtml(tickets)}" target="_blank" class="tour-ticket-btn">Tickets</a>`
-                        : `<span class="tour-ticket-btn sold-out">TBA</span>`;
-
-                    const rowEl = document.createElement('div');
-                    rowEl.className = 'tour-row';
-                    rowEl.innerHTML = `
-                        <div class="tour-date">${escHtml(date)}</div>
-                        <div class="tour-info">
-                            <div class="tour-event">${escHtml(event)}</div>
-                            <div class="tour-location">${escHtml(location)}</div>
-                        </div>
-                        <div>${ticketHTML}</div>
-                    `;
-                    listEl.appendChild(rowEl);
-                });
-
-            } catch (err) {
-                console.error('Tour dates error:', err);
-                showEmpty();
-            }
-
-            function showEmpty() {
-                loadingEl.style.display = 'none';
-                emptyEl.style.display   = 'block';
-            }
-        }
-
-        // Minimal CSV parser (handles quoted fields)
-        function parseCSV(text) {
-            return text.trim().split('\n').map(line => {
-                const fields = [];
-                let cur = '', inQuote = false;
-                for (let i = 0; i < line.length; i++) {
-                    const ch = line[i];
-                    if (ch === '"') { inQuote = !inQuote; }
-                    else if (ch === ',' && !inQuote) { fields.push(cur.trim()); cur = ''; }
-                    else { cur += ch; }
-                }
-                fields.push(cur.trim());
-                return fields;
+    // ── TOUR DATES FROM GOOGLE SHEETS ──
+    const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/11gUte5KqPRDkyx4M_YAyT3YBZJvNTKzE9XQ-KX8G-FI/export?format=csv&gid=0';
+    async function loadTourDates() {
+        const loadingEl = document.getElementById('tour-loading');
+        const emptyEl   = document.getElementById('tour-empty');
+        const listEl    = document.getElementById('tour-list');
+        try {
+            const res = await fetch(SHEET_CSV_URL, { mode: 'cors' });
+            const text = await res.text();
+            const rows = parseCSV(text);
+            if (rows.length < 2) { showEmpty(); return; }
+            // First row = headers: Date, Event, Location, Tickets, Button
+            const headers = rows[0].map(h => h.trim().toLowerCase());
+            const dateIdx     = headers.indexOf('date');
+            const eventIdx    = headers.indexOf('event');
+            const locationIdx = headers.indexOf('location');
+            const ticketsIdx  = headers.indexOf('tickets');
+            const buttonIdx   = headers.indexOf('button');
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            const upcoming = rows.slice(1).filter(row => {
+                if (!row[dateIdx]) return false;
+                const d = new Date(row[dateIdx]);
+                return isNaN(d) || d >= today;
             });
+            if (upcoming.length === 0) { showEmpty(); return; }
+            loadingEl.style.display = 'none';
+            upcoming.forEach(row => {
+                const date       = row[dateIdx]     || '';
+                const event      = row[eventIdx]    || '';
+                const location   = row[locationIdx] || '';
+                const tickets    = row[ticketsIdx]  || '';
+                const buttonText = (buttonIdx !== -1 && row[buttonIdx]) ? row[buttonIdx] : 'Tickets';
+                const ticketHTML = tickets
+                    ? `<a href="${escHtml(tickets)}" target="_blank" class="tour-ticket-btn">${escHtml(buttonText)}</a>`
+                    : `<span class="tour-ticket-btn sold-out">TBA</span>`;
+                const rowEl = document.createElement('div');
+                rowEl.className = 'tour-row';
+                rowEl.innerHTML = `
+                    <div class="tour-date">${escHtml(date)}</div>
+                    <div class="tour-info">
+                        <div class="tour-event">${escHtml(event)}</div>
+                        <div class="tour-location">${escHtml(location)}</div>
+                    </div>
+                    <div>${ticketHTML}</div>
+                `;
+                listEl.appendChild(rowEl);
+            });
+        } catch (err) {
+            console.error('Tour dates error:', err);
+            showEmpty();
         }
-
-        function escHtml(str) {
-            return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+        function showEmpty() {
+            loadingEl.style.display = 'none';
+            emptyEl.style.display   = 'block';
         }
-
-        loadTourDates();
-        // ── END TOUR DATES ──
+    }
+    function parseCSV(text) {
+        return text.trim().split('\n').map(line => {
+            const fields = [];
+            let cur = '', inQuote = false;
+            for (let i = 0; i < line.length; i++) {
+                const ch = line[i];
+                if (ch === '"') { inQuote = !inQuote; }
+                else if (ch === ',' && !inQuote) { fields.push(cur.trim()); cur = ''; }
+                else { cur += ch; }
+            }
+            fields.push(cur.trim());
+            return fields;
+        });
+    }
+    function escHtml(str) {
+        return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+    loadTourDates();
 
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
