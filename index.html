@@ -203,4 +203,772 @@
         
         .album-art-placeholder {
             width: 200px;
-            height:
+            height: 200px;
+            background-color: var(--dark-brown);
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--warm-brown);
+        }
+        
+        .album-art-placeholder span {
+            font-size: 48px;
+            color: var(--gold);
+        }
+        
+        .album-announcement h3 {
+            font-family: 'Old Standard TT', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark-brown);
+            line-height: 1.3;
+        }
+        
+        .album-meta {
+            font-size: 16px;
+            color: var(--warm-brown);
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .album-description {
+            font-size: 18px;
+            color: var(--dark-brown);
+            margin-bottom: 30px;
+            font-style: italic;
+            line-height: 1.5;
+        }
+        
+        .notify-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--gold);
+            color: var(--dark-brown);
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--gold);
+            transition: all 0.3s ease;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+        
+        .notify-button:hover {
+            background-color: transparent;
+            color: var(--gold);
+        }
+
+        /* Merch Section */
+        #merch {
+             background-color: var(--paper-darker);
+             padding-bottom: 100px;
+             border-top: 1px solid var(--warm-brown);
+        }
+
+        .merch-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .merch-item {
+            flex-basis: 300px;
+            text-align: center;
+        }
+
+        .merch-image {
+            width: 100%;
+            height: auto;
+            border: 2px solid var(--warm-brown);
+            box-shadow: 0 4px 20px rgba(60, 42, 30, 0.1);
+        }
+        
+        .merch-item .notify-button {
+            margin-top: 20px;
+        }
+
+        #tour {
+            background-color: var(--paper);
+            padding: 100px 30px;
+            border-top: 1px solid var(--warm-brown);
+            border-bottom: 1px solid var(--warm-brown);
+        }
+
+        .tour-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .tour-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .tour-row {
+            display: grid;
+            grid-template-columns: 140px 1fr auto;
+            align-items: center;
+            gap: 20px;
+            padding: 22px 0;
+            border-bottom: 1px solid rgba(139, 111, 71, 0.3);
+            transition: background 0.2s ease;
+            text-align: left;
+        }
+
+        .tour-row:first-child {
+            border-top: 1px solid rgba(139, 111, 71, 0.3);
+        }
+
+        .tour-row:hover {
+            background-color: rgba(184, 134, 11, 0.04);
+        }
+
+        .tour-date {
+            font-family: 'Old Standard TT', serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            text-align: left;
+        }
+
+        .tour-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            text-align: center;
+        }
+
+        .tour-event {
+            font-family: 'Old Standard TT', serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--dark-brown);
+        }
+
+        .tour-location {
+            font-size: 15px;
+            color: var(--warm-brown);
+            font-style: italic;
+        }
+
+        .tour-ticket-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: transparent;
+            color: var(--dark-brown);
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid var(--warm-brown);
+            transition: all 0.3s ease;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            font-family: 'Crimson Text', serif;
+        }
+
+        .tour-ticket-btn:hover {
+            background-color: var(--gold);
+            border-color: var(--gold);
+            color: var(--dark-brown);
+        }
+
+        .tour-ticket-btn.sold-out {
+            opacity: 0.45;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        #tour-loading {
+            text-align: center;
+            font-style: italic;
+            color: var(--warm-brown);
+            font-size: 17px;
+            padding: 40px 0;
+        }
+
+        #tour-empty {
+            text-align: center;
+            font-style: italic;
+            color: var(--warm-brown);
+            font-size: 17px;
+            padding: 40px 0;
+            display: none;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--paper);
+            padding: 100px 30px;
+            border-top: 1px solid var(--warm-brown);
+            border-bottom: 1px solid var(--warm-brown);
+        }
+        
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-text {
+            font-size: 20px;
+            color: var(--dark-brown);
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .album-art-image {
+            width: 200px;
+            height: 200px;
+            border: 3px solid var(--warm-brown);
+            margin: 0 auto 30px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--paper-darker);
+            padding: 100px 30px;
+        }
+
+        .contact-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-info {
+            background-color: var(--paper);
+            border: 1px solid var(--warm-brown);
+            padding: 40px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-info p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .subscribe-text {
+            margin-bottom: 20px;
+        }
+        
+        .contact-info a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── MailerLite embed — structural rules the widget script relies on ── */
+        #mlb2-43515916.ml-form-embedContainer {
+            box-sizing: border-box;
+            display: table;
+            margin: 0 auto;
+            width: 100% !important;
+        }
+        #mlb2-43515916 .ml-form-embedWrapper {
+            display: inline-block !important;
+            width: 100%;
+            margin: 0 auto;
+        }
+        #mlb2-43515916 .ml-form-align-center {
+            text-align: center;
+        }
+        #mlb2-43515916 .ml-form-embedBody {
+            padding: 0;
+        }
+        #mlb2-43515916 .ml-form-embedContent {
+            display: none; /* our own "Subscribe to keep informed..." text above covers this */
+        }
+        #mlb2-43515916 .ml-form-formContent {
+            width: 100%;
+            margin: 0;
+        }
+        #mlb2-43515916 .ml-form-horizontalRow {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            width: 100%;
+        }
+        #mlb2-43515916 .ml-input-horizontal {
+            flex: 1 1 100%;
+        }
+        #mlb2-43515916 .ml-button-horizontal {
+            flex: 1 1 100%;
+        }
+        #mlb2-43515916 .ml-form-embedSubmitLoad {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+        }
+        #mlb2-43515916 .ml-form-embedSubmitLoad:after {
+            content: " ";
+            display: block;
+            width: 11px;
+            height: 11px;
+            margin: 1px;
+            border-radius: 50%;
+            border: 4px solid var(--paper);
+            border-color: var(--paper) var(--paper) var(--paper) transparent;
+            animation: ml-form-embedSubmitLoad 1.2s linear infinite;
+        }
+        @keyframes ml-form-embedSubmitLoad {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        #mlb2-43515916 .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
+        #mlb2-43515916 .ml-mobileButton-horizontal {
+            display: none;
+        }
+
+        /* ── MailerLite embed — visual styling matched to site palette ── */
+        #mlb2-43515916 * {
+            font-family: 'Crimson Text', serif !important;
+        }
+        #mlb2-43515916 input[type="email"] {
+            width: 100% !important;
+            padding: 12px !important;
+            border: 2px solid var(--warm-brown) !important;
+            background-color: var(--paper) !important;
+            color: var(--dark-brown) !important;
+            font-size: 16px !important;
+            border-radius: 0 !important;
+            box-sizing: border-box !important;
+            line-height: normal !important;
+        }
+        #mlb2-43515916 input[type="email"]::placeholder {
+            color: var(--warm-brown);
+            opacity: 0.8;
+        }
+        #mlb2-43515916 input[type="email"]:focus {
+            outline: none !important;
+            border-color: var(--gold) !important;
+        }
+        #mlb2-43515916 button.primary {
+            width: 100% !important;
+            padding: 12px 30px !important;
+            background-color: var(--gold) !important;
+            color: var(--dark-brown) !important;
+            font-weight: 600 !important;
+            font-size: 16px !important;
+            letter-spacing: 1px !important;
+            border: 2px solid var(--gold) !important;
+            border-radius: 0 !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            height: auto !important;
+            line-height: normal !important;
+        }
+        #mlb2-43515916 button.primary:hover {
+            background-color: transparent !important;
+            color: var(--gold) !important;
+        }
+        #mlb2-43515916 .ml-form-successContent {
+            text-align: center;
+        }
+        #mlb2-43515916 .ml-form-successContent h4 {
+            font-family: 'Old Standard TT', serif !important;
+            font-size: 22px;
+            color: var(--dark-brown) !important;
+            margin-bottom: 10px;
+        }
+        #mlb2-43515916 .ml-form-successContent p {
+            color: var(--warm-brown) !important;
+            font-style: italic;
+        }
+        
+        .enquiries {
+            margin-top: 40px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-brown);
+            color: var(--cream);
+            text-align: center;
+            padding: 40px 30px;
+            font-size: 14px;
+        }
+        
+        /* Social Icons */
+        .social-icons {
+            margin-top: 18px;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+        
+        .social-icon {
+            color: var(--cream);
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+        
+        .social-icon:hover {
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+        
+        .social-icon svg {
+            width: 26px;
+            height: 26px;
+            fill: currentColor;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content {
+                padding: 0 20px;
+            }
+            
+            .album-section, .about, .contact, #merch, #tour {
+                padding: 60px 20px;
+            }
+            
+            .album-announcement {
+                padding: 40px 25px;
+            }
+            
+            .album-art-placeholder {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .album-art-placeholder span {
+                font-size: 36px;
+            }
+
+            .tour-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                padding: 18px 0;
+                text-align: center;
+            }
+
+            .tour-date {
+                text-align: center;
+            }
+
+            .tour-ticket-btn {
+                width: fit-content;
+                margin: 0 auto;
+            }
+
+            .contact-info {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">HONEY TRAP</a>
+            <ul class="nav-links">
+                <li><a href="#album">Album</a></li>
+                <li><a href="#tour">Gigs</a></li>
+                <li><a href="#merch">Merch</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-image">
+            <img src="assets/website1.png" alt="Honey Trap" class="background-image">
+            <div class="hero-overlay">
+                <h1 class="band-name">HONEY TRAP</h1>
+            </div>
+        </div>
+    </section>
+    
+    <section id="album" class="album-section">
+        <h2 class="section-title">The Debut Album!</h2>
+        <div class="album-announcement">
+            <a href="https://open.spotify.com/album/7MJxrFWo9WFckoZ0pkDp2U?si=m1_xuJl8QHGXsULVlq_L4Q" target="_blank">
+                <img src="assets/javelinalbum.jpg" alt="You Never Hear The Javelin That Kills You album art" class="album-art-image">
+            </a>
+            <h4>You Never Hear The Javelin That Kills You</h4>
+            <p class="album-meta"> Available Now </p>
+            <a href="https://open.spotify.com/album/7MJxrFWo9WFckoZ0pkDp2U?si=m1_xuJl8QHGXsULVlq_L4Q" class="notify-button">Listen Here</a>
+        </div>
+    </section>
+
+    <!-- ── GIG DATES SECTION ── -->
+    <section id="tour">
+        <div class="tour-content">
+            <h2 class="section-title">Gig Dates</h2>
+            <p class="tour-info">   <br>
+                                    Keep an eye on our socials for exact busking times as these vary with the weather!
+                                    <br>
+                                    <br>
+            </p>
+            <div id="tour-loading">Loading dates...</div>
+            <div id="tour-empty">No upcoming gigs right now — check back soon.</div>
+            <div id="tour-list"></div>
+        </div>
+    </section>
+    <!-- ── END GIG DATES ── -->
+
+    <section id="merch" class="album-section">
+        <h2 class="section-title">Merchandise</h2>
+        <div class="merch-container">
+            <div class="merch-item">
+                <img src="assets/surfer.jpg" alt="Honey Trap white t-shirt with surfer design" class="merch-image">
+                <a href="https://honeytrapsounds.bandcamp.com/merch/surfer-lady-t-shirt" target="_blank" class="notify-button">Order Surfer Tee</a>
+            </div>
+            <div class="merch-item">
+                <img src="assets/honey.jpg" alt="Honey Trap black t-shirt with logo" class="merch-image">
+                <a href="https://honeytrapsounds.bandcamp.com/merch/honey-trap-t-shirt" target="_blank" class="notify-button">Order Honey Tee</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2 class="section-title">About</h2>
+            <div class="about-text">
+                <p>Honey Trap is a three-piece band from Leeds. <br>
+                    They enjoy making music and drinking at The Duck and Drake. <br>
+                    Owen - Vocals, Drums <br>
+                    Aidan - Bass, BVs <br>
+                    Ben - Guitar, BVs
+                    </p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+      <div class="contact-content">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-info">
+          <p class="subscribe-text">Subscribe to keep informed of releases and gig dates.</p>
+
+          <!-- MailerLite embedded form -->
+          <div id="mlb2-43515916" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-43515916">
+            <div class="ml-form-align-center">
+              <div class="ml-form-embedWrapper embedForm">
+
+                <div class="ml-form-embedBody ml-form-embedBodyHorizontal row-form">
+                  <form class="ml-block-form"
+                        action="https://assets.mailerlite.com/jsonp/2497424/forms/192425545374369270/subscribe"
+                        data-code=""
+                        method="post"
+                        target="_blank">
+
+                    <div class="ml-form-formContent horozintalForm">
+                      <div class="ml-form-horizontalRow">
+                        <div class="ml-input-horizontal">
+                          <div style="width: 100%;" class="horizontal-fields">
+                            <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                              <input type="email"
+                                     class="form-control"
+                                     name="fields[email]"
+                                     placeholder="Enter your email"
+                                     autocomplete="email"
+                                     required>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="ml-button-horizontal primary">
+                          <button type="submit" class="primary">Subscribe</button>
+                          <button disabled style="display: none;" type="button" class="loading">
+                            <div class="ml-form-embedSubmitLoad"></div>
+                            <span class="sr-only">Loading...</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <input type="hidden" name="ml-submit" value="1">
+
+                    <div class="ml-mobileButton-horizontal">
+                      <button type="submit" class="primary">Subscribe</button>
+                      <button disabled style="display: none;" type="button" class="loading">
+                        <div class="ml-form-embedSubmitLoad"></div>
+                        <span class="sr-only">Loading...</span>
+                      </button>
+                    </div>
+                    <input type="hidden" name="anticsrf" value="true">
+                  </form>
+                </div>
+
+                <div class="ml-form-successBody row-success" style="display: none">
+                  <div class="ml-form-successContent">
+                    <h4>Thank you!</h4>
+                    <p>You have successfully joined our subscriber list.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <script>
+            function ml_webform_success_43515916() {
+              var $ = ml_jQuery || jQuery;
+              $('.ml-subscribe-form-43515916 .row-success').show();
+              $('.ml-subscribe-form-43515916 .row-form').hide();
+            }
+          </script>
+          <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
+          <script>fetch("https://assets.mailerlite.com/jsonp/2497424/forms/192425545374369270/takel")</script>
+          <!-- End MailerLite embed -->
+
+          <p class="enquiries">For all other enquiries:<br>
+            <a href="mailto:honeytrapsounds@gmail.com">honeytrapsounds@gmail.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <footer>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="center" style="background-color: #3C2A1E; padding: 30px 20px;">
+                    
+                    <table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 20px;">
+                        <tr>
+                            <td style="padding: 0 12px;">
+                                <a href="https://instagram.com/honeytrapsounds" target="_blank" aria-label="Instagram">
+                                    <img src="https://img.icons8.com/ios-filled/50/F7F3E9/instagram-new.png" alt="Instagram" width="26" height="26">
+                                </a>
+                            </td>
+                            <td style="padding: 0 12px;">
+                                <a href="https://open.spotify.com/artist/3urpGnVmKgiaJygp1YAKNz" target="_blank" aria-label="Spotify">
+                                     <img src="https://img.icons8.com/ios-filled/50/F7F3E9/spotify.png" alt="Spotify" width="26" height="26">
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+    
+                    <p style="font-family: 'Crimson Text', serif; font-size: 14px; color: #F7F3E9; margin: 0;">
+                        © 2026 Honey Trap. All rights reserved.
+                    </p>
+    
+                </td>
+            </tr>
+        </table>
+    </footer>
+
+    <script>
+    // ── TOUR DATES FROM GOOGLE SHEETS ──
+    const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/11gUte5KqPRDkyx4M_YAyT3YBZJvNTKzE9XQ-KX8G-FI/export?format=csv&gid=0';
+    async function loadTourDates() {
+        const loadingEl = document.getElementById('tour-loading');
+        const emptyEl   = document.getElementById('tour-empty');
+        const listEl    = document.getElementById('tour-list');
+        try {
+            const res = await fetch(SHEET_CSV_URL, { mode: 'cors' });
+            const text = await res.text();
+            const rows = parseCSV(text);
+            if (rows.length < 2) { showEmpty(); return; }
+            const headers = rows[0].map(h => h.trim().toLowerCase());
+            const dateIdx     = headers.indexOf('date');
+            const eventIdx    = headers.indexOf('event');
+            const locationIdx = headers.indexOf('location');
+            const ticketsIdx  = headers.indexOf('tickets');
+            const buttonIdx   = headers.indexOf('button');
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            const upcoming = rows.slice(1).filter(row => {
+                if (!row[dateIdx]) return false;
+                const d = new Date(row[dateIdx]);
+                return isNaN(d) || d >= today;
+            });
+            if (upcoming.length === 0) { showEmpty(); return; }
+            loadingEl.style.display = 'none';
+            upcoming.forEach(row => {
+                const date       = row[dateIdx]     || '';
+                const event      = row[eventIdx]    || '';
+                const location   = row[locationIdx] || '';
+                const tickets    = row[ticketsIdx]  || '';
+                const buttonText = (buttonIdx !== -1 && row[buttonIdx]) ? row[buttonIdx] : 'Tickets';
+                const ticketHTML = tickets
+                    ? `<a href="${escHtml(tickets)}" target="_blank" class="tour-ticket-btn">${escHtml(buttonText)}</a>`
+                    : `<span class="tour-ticket-btn sold-out">TBA</span>`;
+                const rowEl = document.createElement('div');
+                rowEl.className = 'tour-row';
+                rowEl.innerHTML = `
+                    <div class="tour-date">${escHtml(date)}</div>
+                    <div class="tour-info">
+                        <div class="tour-event">${escHtml(event)}</div>
+                        <div class="tour-location">${escHtml(location)}</div>
+                    </div>
+                    <div>${ticketHTML}</div>
+                `;
+                listEl.appendChild(rowEl);
+            });
+        } catch (err) {
+            console.error('Tour dates error:', err);
+            showEmpty();
+        }
+        function showEmpty() {
+            loadingEl.style.display = 'none';
+            emptyEl.style.display   = 'block';
+        }
+    }
+    function parseCSV(text) {
+        return text.trim().split('\n').map(line => {
+            const fields = [];
+            let cur = '', inQuote = false;
+            for (let i = 0; i < line.length; i++) {
+                const ch = line[i];
+                if (ch === '"') { inQuote = !inQuote; }
+                else if (ch === ',' && !inQuote) { fields.push(cur.trim()); cur = ''; }
+                else { cur += ch; }
+            }
+            fields.push(cur.trim());
+            return fields;
+        });
+    }
+    function escHtml(str) {
+        return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+    loadTourDates();
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+    </script>
+</body>
+</html>
