@@ -759,13 +759,11 @@
       <div class="contact-content">
         <h2 class="section-title">Contact</h2>
         <div class="contact-info">
-
           <p class="subscribe-text">Subscribe to keep informed of releases and gig dates.</p>
-
-          <!-- Mailchimp embedded form (updated) -->
+          <!-- MailerLite embedded form (styled to match previous Mailchimp markup) -->
           <div id="mc_embed_shell">
             <div id="mc_embed_signup">
-              <form action="https://honeytrapsounds.us22.list-manage.com/subscribe/post?u=bd45faa7ee87d20d0d4945678&amp;id=eb0956f518&amp;f_id=00fbe1e1f0"
+              <form action="https://assets.mailerlite.com/jsonp/2497424/forms/192425545374369270/subscribe"
                     method="post"
                     id="mc-embedded-subscribe-form"
                     name="mc-embedded-subscribe-form"
@@ -777,20 +775,16 @@
                   <div class="mc-field-group">
                     <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
                     <input type="email"
-                           name="EMAIL"
+                           name="fields[email]"
                            class="required email"
                            id="mce-EMAIL"
                            placeholder="Enter your email"
-                           required=""
-                           value="">
+                           autocomplete="email"
+                           required="">
                   </div>
                   <div id="mce-responses" class="clear">
                     <div class="response" id="mce-error-response" style="display: none;"></div>
                     <div class="response" id="mce-success-response" style="display: none;"></div>
-                  </div>
-                  <!-- Mailchimp bot protection — do not remove -->
-                  <div aria-hidden="true" style="position: absolute; left: -5000px;">
-                    <input type="text" name="b_bd45faa7ee87d20d0d4945678_eb0956f518" tabindex="-1" value="">
                   </div>
                   <div class="clear">
                     <input type="submit"
@@ -799,12 +793,13 @@
                            class="button"
                            value="Subscribe">
                   </div>
+                  <input type="hidden" name="ml-submit" value="1">
+                  <input type="hidden" name="anticsrf" value="true">
                 </div>
               </form>
             </div>
           </div>
-          <!-- End Mailchimp embed -->
-
+          <!-- End MailerLite embed -->
           <p class="enquiries">For all other enquiries:<br>
             <a href="mailto:honeytrapsounds@gmail.com">honeytrapsounds@gmail.com</a>
           </p>
