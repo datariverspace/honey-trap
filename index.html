@@ -71,12 +71,11 @@
             background-image: 
                 radial-gradient(circle at 20% 80%, rgba(60, 42, 30, 0.03) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(139, 111, 71, 0.03) 0%, transparent 50%);
-            padding-bottom: 70px;
         }
 
-        /* Fixed footer image - stays pinned to the bottom of the viewport at all times */
+        /* Footer image - sits below the "all rights reserved" footer, then sticks to the bottom of the viewport once you scroll it into view */
         .fixed-footer-image {
-            position: fixed;
+            position: sticky;
             bottom: 0;
             left: 0;
             width: 100%;
@@ -84,6 +83,13 @@
             object-fit: cover;
             display: block;
             z-index: 1001;
+        }
+
+        /* Desktop gets a taller footer image; mobile keeps its existing proportion */
+        @media (min-width: 769px) {
+            .fixed-footer-image {
+                height: 110px;
+            }
         }
 
         /* Mobile menu toggle (hamburger) - hidden on desktop, shown only on mobile via media query below */
@@ -757,8 +763,6 @@
             </div>
         </div>
     </section>
-
-    <img src="assets/footer.jpg" alt="Honey Trap" class="fixed-footer-image">
     
     <section id="album" class="album-section">
         <h2 class="section-title">The Debut Album!</h2>
@@ -808,6 +812,7 @@
             <div class="about-text">
                 <p>Honey Trap is a three-piece band from Leeds. <br>
                     They enjoy making music and drinking at The Duck and Drake. <br>
+                    <br>
                     Owen - Vocals, Drums <br>
                     Aidan - Bass, BVs <br>
                     Ben - Guitar, BVs
@@ -894,8 +899,9 @@
           <script>fetch("https://assets.mailerlite.com/jsonp/2497424/forms/192425545374369270/takel")</script>
           <!-- End MailerLite embed -->
 
-          <p class="enquiries">For all other enquiries:<br>
-            <a href="mailto:honeytrapsounds@gmail.com">honeytrapsounds@gmail.com</a>
+          <p class="enquiries">For enquiries or just to say hello, email us at:<br>
+            <a href="mailto:honeytrapsounds@gmail.com">honeytrapsounds@gmail.com</a><br>
+               We respond to all messages!<br>
           </p>
         </div>
       </div>
@@ -929,6 +935,8 @@
             </tr>
         </table>
     </footer>
+
+    <img src="assets/footer.jpg" alt="Honey Trap" class="fixed-footer-image">
 
     <script>
     // ── TOUR DATES FROM GOOGLE SHEETS ──
