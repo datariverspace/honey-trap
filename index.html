@@ -11,7 +11,7 @@
 
     <!-- SEO -->
     <meta name="description" content="Honey Trap are a three-piece band from Leeds. Listen to their debut album 'You Never Hear The Javelin That Kills You', buy merch, and find upcoming gigs.">
-    <meta name="keywords" content="Honey Trap, Honey Trap band, Leeds band, Leeds indie band, Leeds music, indie rock Leeds, Honey Trap gigs, Honey Trap tour, You Never Hear The Javelin That Kills You">
+    <meta name="keywords" content="Honey Trap, Honey Trap band, Leeds band, Leeds indie band, Leeds music, indie rock Leeds, Honey Trap gigs, Honey Trap gigs, You Never Hear The Javelin That Kills You">
     <meta name="author" content="Honey Trap">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://honeytrap.band/">
@@ -333,25 +333,25 @@
             margin-top: 20px;
         }
 
-        #tour {
+        #gigs {
             background-color: var(--paper);
             padding: 100px 30px;
             border-top: 1px solid var(--warm-brown);
             border-bottom: 1px solid var(--warm-brown);
         }
 
-        .tour-content {
+        .gigs-content {
             max-width: 700px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .tour-table {
+        .gigs-table {
             width: 100%;
             border-collapse: collapse;
         }
 
-        .tour-row {
+        .gigs-row {
             display: grid;
             grid-template-columns: 140px 1fr auto;
             align-items: center;
@@ -362,15 +362,15 @@
             text-align: left;
         }
 
-        .tour-row:first-child {
+        .gigs-row:first-child {
             border-top: 1px solid rgba(139, 111, 71, 0.3);
         }
 
-        .tour-row:hover {
+        .gigs-row:hover {
             background-color: rgba(184, 134, 11, 0.04);
         }
 
-        .tour-date {
+        .gigs-date {
             font-family: 'Old Standard TT', serif;
             font-size: 15px;
             font-weight: 700;
@@ -380,27 +380,27 @@
             text-align: left;
         }
 
-        .tour-info {
+        .gigs-info {
             display: flex;
             flex-direction: column;
             gap: 3px;
             text-align: center;
         }
 
-        .tour-event {
+        .gigs-event {
             font-family: 'Old Standard TT', serif;
             font-size: 17px;
             font-weight: 700;
             color: var(--dark-brown);
         }
 
-        .tour-location {
+        .gigs-location {
             font-size: 15px;
             color: var(--warm-brown);
             font-style: italic;
         }
 
-        .tour-ticket-btn {
+        .gigs-ticket-btn {
             display: inline-block;
             padding: 8px 20px;
             background-color: transparent;
@@ -415,19 +415,19 @@
             font-family: 'Crimson Text', serif;
         }
 
-        .tour-ticket-btn:hover {
+        .gigs-ticket-btn:hover {
             background-color: var(--gold);
             border-color: var(--gold);
             color: var(--dark-brown);
         }
 
-        .tour-ticket-btn.sold-out {
+        .gigs-ticket-btn.sold-out {
             opacity: 0.45;
             cursor: default;
             pointer-events: none;
         }
 
-        #tour-loading {
+        #gigs-loading {
             text-align: center;
             font-style: italic;
             color: var(--warm-brown);
@@ -435,7 +435,7 @@
             padding: 40px 0;
         }
 
-        #tour-empty {
+        #gigs-empty {
             text-align: center;
             font-style: italic;
             color: var(--warm-brown);
@@ -716,7 +716,7 @@
                 padding: 0 20px;
             }
             
-            .album-section, .about, .contact, #merch, #tour {
+            .album-section, .about, .contact, #merch, #gigs {
                 padding: 60px 20px;
             }
             
@@ -733,18 +733,18 @@
                 font-size: 36px;
             }
 
-            .tour-row {
+            .gigs-row {
                 grid-template-columns: 1fr;
                 gap: 8px;
                 padding: 18px 0;
                 text-align: center;
             }
 
-            .tour-date {
+            .gigs-date {
                 text-align: center;
             }
 
-            .tour-ticket-btn {
+            .gigs-ticket-btn {
                 width: fit-content;
                 margin: 0 auto;
             }
@@ -766,7 +766,7 @@
             <a href="#" class="logo">HONEY TRAP</a>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#album">Album</a></li>
-                <li><a href="#tour">Gigs</a></li>
+                <li><a href="#gigs">gigs</a></li>
                 <li><a href="#merch">Merch</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -801,17 +801,17 @@
     </section>
 
     <!-- ── GIG DATES SECTION ── -->
-    <section id="tour">
-        <div class="tour-content">
+    <section id="gigs">
+        <div class="gigs-content">
             <h2 class="section-title">Gig Dates</h2>
-            <p class="tour-info">   <br>
+            <p class="gigs-info">   <br>
                                     Keep an eye on our socials for exact busking times as these vary with the weather!
                                     <br>
                                     <br>
             </p>
-            <div id="tour-loading">Loading dates...</div>
-            <div id="tour-empty">No upcoming gigs right now — check back soon.</div>
-            <div id="tour-list"></div>
+            <div id="gigs-loading">Loading dates...</div>
+            <div id="gigs-empty">No upcoming gigs right now — check back soon.</div>
+            <div id="gigs-list"></div>
         </div>
     </section>
     <!-- ── END GIG DATES ── -->
@@ -970,12 +970,12 @@
     <img src="assets/footer.jpg" alt="Honey Trap" class="footer-image">
 
     <script>
-    // ── TOUR DATES FROM GOOGLE SHEETS ──
+    // ── gigs DATES FROM GOOGLE SHEETS ──
     const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/11gUte5KqPRDkyx4M_YAyT3YBZJvNTKzE9XQ-KX8G-FI/export?format=csv&gid=0';
-    async function loadTourDates() {
-        const loadingEl = document.getElementById('tour-loading');
-        const emptyEl   = document.getElementById('tour-empty');
-        const listEl    = document.getElementById('tour-list');
+    async function loadgigsDates() {
+        const loadingEl = document.getElementById('gigs-loading');
+        const emptyEl   = document.getElementById('gigs-empty');
+        const listEl    = document.getElementById('gigs-list');
         try {
             const res = await fetch(SHEET_CSV_URL, { mode: 'cors' });
             const text = await res.text();
@@ -1003,22 +1003,22 @@
                 const tickets    = row[ticketsIdx]  || '';
                 const buttonText = (buttonIdx !== -1 && row[buttonIdx]) ? row[buttonIdx] : 'Tickets';
                 const ticketHTML = tickets
-                    ? `<a href="${escHtml(tickets)}" target="_blank" class="tour-ticket-btn">${escHtml(buttonText)}</a>`
-                    : `<span class="tour-ticket-btn sold-out">TBA</span>`;
+                    ? `<a href="${escHtml(tickets)}" target="_blank" class="gigs-ticket-btn">${escHtml(buttonText)}</a>`
+                    : `<span class="gigs-ticket-btn sold-out">TBA</span>`;
                 const rowEl = document.createElement('div');
-                rowEl.className = 'tour-row';
+                rowEl.className = 'gigs-row';
                 rowEl.innerHTML = `
-                    <div class="tour-date">${escHtml(date)}</div>
-                    <div class="tour-info">
-                        <div class="tour-event">${escHtml(event)}</div>
-                        <div class="tour-location">${escHtml(location)}</div>
+                    <div class="gigs-date">${escHtml(date)}</div>
+                    <div class="gigs-info">
+                        <div class="gigs-event">${escHtml(event)}</div>
+                        <div class="gigs-location">${escHtml(location)}</div>
                     </div>
                     <div>${ticketHTML}</div>
                 `;
                 listEl.appendChild(rowEl);
             });
         } catch (err) {
-            console.error('Tour dates error:', err);
+            console.error('gigs dates error:', err);
             showEmpty();
         }
         function showEmpty() {
@@ -1043,7 +1043,7 @@
     function escHtml(str) {
         return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
-    loadTourDates();
+    loadgigsDates();
 
     // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
