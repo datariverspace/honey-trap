@@ -1338,7 +1338,7 @@
             size: item.file.size,
             submitter: document.getElementById('fu-name').value.trim(),
             handle: document.getElementById('fu-handle').value.trim(),
-            note: document.getElementById('fu-note').value.trim()
+            // note: document.getElementById('fu-note').value.trim()
           })
         }).then(function(res){
           if (!res.ok) throw new Error('Could not start upload session');
