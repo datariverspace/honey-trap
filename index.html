@@ -663,6 +663,143 @@
         .enquiries {
             margin-top: 40px;
         }
+
+        /* ── Uploader Section ── */
+        .uploader {
+            background-color: var(--paper);
+            padding: 100px 30px;
+            border-top: 1px solid var(--warm-brown);
+            text-align: center;
+        }
+
+        .uploader-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .uploader-box {
+            background-color: var(--paper-darker);
+            border: 1px solid var(--warm-brown);
+            padding: 40px;
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        #uploader {
+            scroll-margin-top: 110px; /* clears the fixed nav when jumped to via #uploader */
+        }
+
+        .uploader-box .fu-sub {
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 26px;
+            color: var(--dark-brown);
+        }
+
+        .fu-row { display: flex; gap: 16px; margin-bottom: 14px; }
+        .fu-field { flex: 1; margin-bottom: 14px; }
+        .fu-field label {
+            display: block;
+            font-size: 14px;
+            color: var(--warm-brown);
+            margin-bottom: 6px;
+        }
+        .fu-field input[type=text] {
+            width: 100%;
+            font-family: 'Crimson Text', serif;
+            font-size: 16px;
+            color: var(--dark-brown);
+            background: var(--paper);
+            border: 1px solid var(--warm-brown);
+            padding: 10px 12px;
+            outline: none;
+            box-sizing: border-box;
+        }
+        .fu-field input[type=text]:focus { border-color: var(--gold); }
+
+        .fu-dropzone {
+            display: block;
+            border: 2px dashed var(--warm-brown);
+            background: var(--paper);
+            padding: 34px 16px;
+            text-align: center;
+            cursor: pointer;
+            margin: 6px 0 18px;
+            transition: border-color 0.25s, background 0.25s;
+        }
+        .fu-dropzone.fu-drag { border-color: var(--gold); background: rgba(184,134,11,0.08); }
+        .fu-dropzone input { display: none; }
+        .fu-dz-title {
+            font-family: 'Old Standard TT', serif;
+            font-size: 18px;
+            color: var(--dark-brown);
+            margin-bottom: 4px;
+        }
+        .fu-dz-sub { font-size: 14px; color: var(--warm-brown); }
+
+        .fu-setlist { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+        .fu-track {
+            border: 1px solid var(--warm-brown);
+            background: var(--paper);
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .fu-track-body { flex: 1; min-width: 0; }
+        .fu-track-name {
+            font-size: 15px;
+            color: var(--dark-brown);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .fu-track-bar { height: 3px; background: rgba(60,42,30,0.12); margin-top: 7px; position: relative; overflow: hidden; }
+        .fu-track-bar-fill { position: absolute; left:0; top:0; bottom:0; width:0%; background: var(--gold); transition: width 0.15s linear; }
+        .fu-track-bar-fill.fu-error { background: #A33; }
+        .fu-track-size { font-size: 13px; color: var(--warm-brown); width: 60px; text-align: right; flex-shrink:0; }
+        .fu-track-status { width: 18px; text-align:center; color: var(--gold); flex-shrink:0; }
+
+        .fu-send {
+            display: block;
+            width: 100%;
+            font-family: 'Crimson Text', serif;
+            font-weight: 600;
+            font-size: 17px;
+            letter-spacing: 1px;
+            padding: 12px 30px;
+            background-color: var(--gold);
+            color: var(--dark-brown);
+            border: 2px solid var(--gold);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .fu-send:hover:not(:disabled) { background-color: transparent; color: var(--gold); }
+        .fu-send:disabled { background: var(--warm-brown); border-color: var(--warm-brown); color: var(--paper); cursor: not-allowed; }
+
+        .fu-status { font-size: 14px; color: var(--warm-brown); margin-top: 12px; min-height: 18px; }
+        .fu-status.fu-error { color: #A33; }
+
+        .fu-done { display: none; text-align: center; }
+        .fu-done.fu-show { display: block; }
+        .fu-done p { color: var(--warm-brown); margin-bottom: 20px; font-size: 17px; }
+        .fu-again {
+            font-family: 'Crimson Text', serif;
+            font-size: 14px;
+            background: none;
+            border: 1px solid var(--warm-brown);
+            color: var(--dark-brown);
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .fu-again:hover { border-color: var(--gold); color: var(--gold); }
+
+        @media (max-width: 768px) {
+            .uploader { padding: 60px 20px; }
+            .uploader-box { padding: 28px 20px; max-width: 100%; }
+            .fu-row { flex-direction: column; gap: 0; }
+        }
         
         /* Footer */
         footer {
@@ -770,6 +907,7 @@
                 <li><a href="#merch">Merch</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#uploader">Uploader</a></li>
             </ul>
             <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
                 <span></span>
@@ -937,7 +1075,52 @@
         </div>
       </div>
     </section>
-    
+
+    <!-- ── FAN UPLOADER SECTION ── -->
+    <section id="uploader" class="uploader">
+      <div class="uploader-content">
+        <h2 class="section-title">Uploader</h2>
+        <div class="uploader-box">
+          <p class="fu-sub">Got footage from a show? Send us your photos and videos straight from your phone &mdash; full quality, no Instagram compression.</p>
+
+          <form id="fu-form">
+            <div class="fu-row">
+              <div class="fu-field">
+                <label for="fu-name">Your name</label>
+                <input type="text" id="fu-name" placeholder="First name" autocomplete="given-name">
+              </div>
+              <div class="fu-field">
+                <label for="fu-handle">Instagram / TikTok</label>
+                <input type="text" id="fu-handle" placeholder="@yourhandle">
+              </div>
+            </div>
+            <div class="fu-field">
+              <label for="fu-note">Where / when was this?</label>
+              <input type="text" id="fu-note" placeholder="e.g. Busking on Briggate, July 2026">
+            </div>
+
+            <label class="fu-dropzone" id="fu-dropzone">
+              <div class="fu-dz-title">Drop files here</div>
+              <div class="fu-dz-sub">or tap to browse — photos &amp; videos, any size</div>
+              <input type="file" id="fu-file-input" multiple accept="image/*,video/*">
+            </label>
+
+            <div class="fu-setlist" id="fu-setlist"></div>
+
+            <button type="submit" class="fu-send" id="fu-send-btn" disabled>Send to Honey Trap</button>
+            <div class="fu-status" id="fu-status"></div>
+          </form>
+
+          <div class="fu-done" id="fu-done">
+            <h4>Got it, thank you!</h4>
+            <p>That's safe with us now, full quality and all.</p>
+            <button class="fu-again" id="fu-send-more">Send more</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ── END FAN UPLOADER SECTION ── -->
+
     <footer>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr>
@@ -1079,6 +1262,177 @@
         const isOpen = navLinks.classList.toggle('mobile-open');
         menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
+    </script>
+
+    <!-- ── FAN UPLOADER SCRIPT — isolated in its own IIFE ── -->
+    <script>
+    (function(){
+      var API_BASE = 'https://uploader-old2.vercel.app';
+      var CHUNK_SIZE = 8 * 1024 * 1024;
+
+      var queue = [];
+      var idCounter = 0;
+
+      var dropzone = document.getElementById('fu-dropzone');
+      var fileInput = document.getElementById('fu-file-input');
+      var setlist = document.getElementById('fu-setlist');
+      var sendBtn = document.getElementById('fu-send-btn');
+      var statusLine = document.getElementById('fu-status');
+      var form = document.getElementById('fu-form');
+      var doneScreen = document.getElementById('fu-done');
+
+      ['dragenter','dragover'].forEach(function(evt){
+        dropzone.addEventListener(evt, function(e){ e.preventDefault(); dropzone.classList.add('fu-drag'); });
+      });
+      ['dragleave','drop'].forEach(function(evt){
+        dropzone.addEventListener(evt, function(e){ e.preventDefault(); dropzone.classList.remove('fu-drag'); });
+      });
+      dropzone.addEventListener('drop', function(e){ addFiles(e.dataTransfer.files); });
+      fileInput.addEventListener('change', function(e){ addFiles(e.target.files); fileInput.value=''; });
+
+      function addFiles(fileList){
+        Array.prototype.forEach.call(fileList, function(file){
+          queue.push({ file: file, id: 'fu'+(idCounter++), progress: 0, status: 'queued' });
+        });
+        renderQueue();
+        updateSendButton();
+      }
+
+      function fmtSize(bytes){
+        if (bytes > 1e9) return (bytes/1e9).toFixed(1) + ' GB';
+        if (bytes > 1e6) return (bytes/1e6).toFixed(1) + ' MB';
+        return Math.round(bytes/1e3) + ' KB';
+      }
+
+      function renderQueue(){
+        setlist.innerHTML = '';
+        queue.forEach(function(item){
+          var el = document.createElement('div');
+          el.className = 'fu-track';
+          el.innerHTML =
+            '<div class="fu-track-body">' +
+              '<div class="fu-track-name">' + item.file.name + '</div>' +
+              '<div class="fu-track-bar"><div class="fu-track-bar-fill' + (item.status==='error' ? ' fu-error' : '') + '" style="width:' + item.progress + '%"></div></div>' +
+            '</div>' +
+            '<div class="fu-track-size">' + fmtSize(item.file.size) + '</div>' +
+            '<div class="fu-track-status">' + (item.status==='done' ? '✓' : (item.status==='error' ? '!' : '')) + '</div>';
+          setlist.appendChild(el);
+        });
+      }
+
+      function updateSendButton(){
+        sendBtn.disabled = queue.length === 0 || queue.some(function(q){ return q.status === 'uploading'; });
+      }
+
+      function setTrackProgress(id, progress, status){
+        var item = queue.find(function(q){ return q.id === id; });
+        if (!item) return;
+        item.progress = progress;
+        if (status) item.status = status;
+        renderQueue();
+      }
+
+      function createSession(item){
+        return fetch(API_BASE + '/api/create-upload-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            filename: item.file.name,
+            mimeType: item.file.type || 'application/octet-stream',
+            size: item.file.size,
+            submitter: document.getElementById('fu-name').value.trim(),
+            handle: document.getElementById('fu-handle').value.trim(),
+            note: document.getElementById('fu-note').value.trim()
+          })
+        }).then(function(res){
+          if (!res.ok) throw new Error('Could not start upload session');
+          return res.json();
+        }).then(function(data){ return data.uploadUrl; });
+      }
+
+      function uploadInChunks(item, uploadUrl){
+        return new Promise(function(resolve, reject){
+          var file = item.file;
+          var total = file.size;
+          var offset = 0;
+
+          function sendNextChunk(){
+            var end = Math.min(offset + CHUNK_SIZE, total);
+            var chunk = file.slice(offset, end);
+            var xhr = new XMLHttpRequest();
+            xhr.open('PUT', uploadUrl, true);
+            xhr.setRequestHeader('Content-Range', 'bytes ' + offset + '-' + (end-1) + '/' + total);
+
+            xhr.upload.onprogress = function(e){
+              var uploadedSoFar = offset + e.loaded;
+              setTrackProgress(item.id, Math.min(99, Math.round((uploadedSoFar/total)*100)), 'uploading');
+            };
+            xhr.onload = function(){
+              if (xhr.status === 308){
+                offset = end;
+                if (offset < total) { sendNextChunk(); }
+                else { setTrackProgress(item.id, 100, 'done'); resolve(); }
+              } else if (xhr.status === 200 || xhr.status === 201){
+                setTrackProgress(item.id, 100, 'done'); resolve();
+              } else {
+                setTrackProgress(item.id, item.progress, 'error');
+                reject(new Error('Upload failed with status ' + xhr.status));
+              }
+            };
+            xhr.onerror = function(){
+              setTrackProgress(item.id, item.progress, 'error');
+              reject(new Error('Network error during upload'));
+            };
+            xhr.send(chunk);
+          }
+          sendNextChunk();
+        });
+      }
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        if (queue.length === 0) return;
+        sendBtn.disabled = true;
+        statusLine.textContent = '';
+        statusLine.classList.remove('fu-error');
+
+        var chain = Promise.resolve();
+        var hadError = false;
+
+        queue.forEach(function(item){
+          if (item.status === 'done') return;
+          chain = chain.then(function(){
+            setTrackProgress(item.id, 1, 'uploading');
+            return createSession(item)
+              .then(function(uploadUrl){ return uploadInChunks(item, uploadUrl); })
+              .catch(function(){
+                hadError = true;
+                setTrackProgress(item.id, item.progress, 'error');
+              });
+          });
+        });
+
+        chain.then(function(){
+          if (hadError){
+            statusLine.textContent = "Some files didn't make it through — check your connection and hit send again.";
+            statusLine.classList.add('fu-error');
+            updateSendButton();
+          } else {
+            form.style.display = 'none';
+            doneScreen.classList.add('fu-show');
+          }
+        });
+      });
+
+      document.getElementById('fu-send-more').addEventListener('click', function(){
+        queue = [];
+        renderQueue();
+        updateSendButton();
+        form.reset();
+        doneScreen.classList.remove('fu-show');
+        form.style.display = 'block';
+      });
+    })();
     </script>
 </body>
 </html>
