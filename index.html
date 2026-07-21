@@ -906,8 +906,8 @@
                 <li><a href="#gigs">Gigs</a></li>
                 <li><a href="#merch">Merch</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
                 <li><a href="#uploader">Uploader</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
             <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
                 <span></span>
@@ -989,6 +989,47 @@
         </div>
     </section>
     
+    <!-- ── FAN UPLOADER SECTION ── -->
+    <section id="uploader" class="uploader">
+      <div class="uploader-content">
+        <h2 class="section-title">Uploader</h2>
+        <div class="uploader-box">
+          <p class="fu-sub">Got footage from a show? Send us your photos and videos straight from your phone. We post (nearly) everything thats sent!</p>
+
+          <form id="fu-form">
+            <div class="fu-row">
+              <div class="fu-field">
+                <label for="fu-name">Your name</label>
+                <input type="text" id="fu-name" placeholder="First name" autocomplete="given-name">
+              </div>
+              <div class="fu-field">
+                <label for="fu-handle">Instagram / TikTok</label>
+                <input type="text" id="fu-handle" placeholder="@yourhandle">
+              </div>
+            </div>
+
+            <label class="fu-dropzone" id="fu-dropzone">
+              <div class="fu-dz-title">Drop files here</div>
+              <div class="fu-dz-sub">or tap to browse — photos &amp; videos, any size</div>
+              <input type="file" id="fu-file-input" multiple accept="image/*,video/*">
+            </label>
+
+            <div class="fu-setlist" id="fu-setlist"></div>
+
+            <button type="submit" class="fu-send" id="fu-send-btn" disabled>Send to Honey Trap</button>
+            <div class="fu-status" id="fu-status"></div>
+          </form>
+
+          <div class="fu-done" id="fu-done">
+            <h4>Got it, thank you!</h4>
+            <p>We'll review your uploads and post them tomorrow.</p>
+            <button class="fu-again" id="fu-send-more">Send more</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ── END FAN UPLOADER SECTION ── -->
+
     <section id="contact" class="contact">
       <div class="contact-content">
         <h2 class="section-title">Contact</h2>
@@ -1075,47 +1116,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ── FAN UPLOADER SECTION ── -->
-    <section id="uploader" class="uploader">
-      <div class="uploader-content">
-        <h2 class="section-title">Uploader</h2>
-        <div class="uploader-box">
-          <p class="fu-sub">Got footage from a show? Send us your photos and videos straight from your phone. We post (nearly) everything thats sent!</p>
-
-          <form id="fu-form">
-            <div class="fu-row">
-              <div class="fu-field">
-                <label for="fu-name">Your name</label>
-                <input type="text" id="fu-name" placeholder="First name" autocomplete="given-name">
-              </div>
-              <div class="fu-field">
-                <label for="fu-handle">Instagram / TikTok</label>
-                <input type="text" id="fu-handle" placeholder="@yourhandle">
-              </div>
-            </div>
-
-            <label class="fu-dropzone" id="fu-dropzone">
-              <div class="fu-dz-title">Drop files here</div>
-              <div class="fu-dz-sub">or tap to browse — photos &amp; videos, any size</div>
-              <input type="file" id="fu-file-input" multiple accept="image/*,video/*">
-            </label>
-
-            <div class="fu-setlist" id="fu-setlist"></div>
-
-            <button type="submit" class="fu-send" id="fu-send-btn" disabled>Send to Honey Trap</button>
-            <div class="fu-status" id="fu-status"></div>
-          </form>
-
-          <div class="fu-done" id="fu-done">
-            <h4>Got it, thank you!</h4>
-            <p>We'll review your uploads and post them tomorrow.</p>
-            <button class="fu-again" id="fu-send-more">Send more</button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ── END FAN UPLOADER SECTION ── -->
 
     <footer>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -1328,12 +1328,29 @@
         renderQueue();
       }
 
-      function createSession(item){
+      // Builds the "Name - @handle" title and turns it into a filename,
+      // keeping the original extension. Falls back gracefully if the
+      // fan left one or both fields blank. `suffix` disambiguates
+      // multiple files in the same batch (e.g. " (2)").
+      function buildTitleFilename(originalName, name, handle, suffix){
+        var dotIndex = originalName.lastIndexOf('.');
+        var ext = dotIndex > -1 ? originalName.slice(dotIndex) : '';
+
+        var title;
+        if (name && handle) title = name + ' - ' + handle;
+        else if (name) title = name;
+        else if (handle) title = handle;
+        else return originalName; // nothing to go on, keep the original name
+
+        return title + (suffix || '') + ext;
+      }
+
+      function createSession(item, titleFilename){
         return fetch(API_BASE + 'api/create-upload-session', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            filename: item.file.name,
+            filename: titleFilename,
             mimeType: item.file.type || 'application/octet-stream',
             size: item.file.size,
             submitter: document.getElementById('fu-name').value.trim(),
@@ -1395,11 +1412,19 @@
         var chain = Promise.resolve();
         var hadError = false;
 
+        var name = document.getElementById('fu-name').value.trim();
+        var handle = document.getElementById('fu-handle').value.trim();
+        var pending = queue.filter(function(q){ return q.status !== 'done'; });
+
         queue.forEach(function(item){
           if (item.status === 'done') return;
+          var indexInBatch = pending.indexOf(item);
+          var suffix = pending.length > 1 ? ' (' + (indexInBatch + 1) + ')' : '';
+          var titleFilename = buildTitleFilename(item.file.name, name, handle, suffix);
+
           chain = chain.then(function(){
             setTrackProgress(item.id, 1, 'uploading');
-            return createSession(item)
+            return createSession(item, titleFilename)
               .then(function(uploadUrl){ return uploadInChunks(item, uploadUrl); })
               .catch(function(){
                 hadError = true;
