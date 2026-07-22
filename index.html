@@ -212,6 +212,10 @@
             color: var(--cream);
             letter-spacing: 3px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
         
         /* Album Section */
@@ -299,6 +303,12 @@
         .notify-button:hover {
             background-color: transparent;
             color: var(--gold);
+        }
+
+        .album-announcement .notify-button {
+            display: block;
+            width: fit-content;
+            margin: 0 auto 15px;
         }
 
         /* Merch Section */
@@ -936,6 +946,7 @@
             </a>
             <h4>You Never Hear The Javelin That Kills You</h4>
             <p class="album-meta"> Available Now </p>
+            <a href="#merch" class="notify-button">Buy Here</a>
             <a href="https://open.spotify.com/album/7MJxrFWo9WFckoZ0pkDp2U?si=m1_xuJl8QHGXsULVlq_L4Q" class="notify-button">Listen Here</a>
         </div>
     </section>
@@ -960,19 +971,27 @@
         <h2 class="section-title">Merchandise</h2>
         <div class="merch-container">
             <div class="merch-item">
-                <img src="assets/surfer.jpg" alt="Honey Trap white t-shirt with surfer design" class="merch-image">
+                <a href="https://honeytrapsounds.bandcamp.com/merch/surfer-lady-t-shirt" target="_blank">
+                    <img src="assets/surfer.jpg" alt="Honey Trap white t-shirt with surfer design" class="merch-image">
+                </a>
                 <a href="https://honeytrapsounds.bandcamp.com/merch/surfer-lady-t-shirt" target="_blank" class="notify-button">Order Surfer Tee</a>
             </div>
             <div class="merch-item">
-                <img src="assets/honey.jpg" alt="Honey Trap black t-shirt with logo" class="merch-image">
+                <a href="https://honeytrapsounds.bandcamp.com/merch/honey-trap-t-shirt" target="_blank">
+                    <img src="assets/honey.jpg" alt="Honey Trap black t-shirt with logo" class="merch-image">
+                </a>
                 <a href="https://honeytrapsounds.bandcamp.com/merch/honey-trap-t-shirt" target="_blank" class="notify-button">Order Honey Tee</a>
             </div>
             <div class="merch-item">
-                <img src="assets/black-vinyl.png" alt="Honey Trap black vinyl record" class="merch-image">
+                <a href="#contact">
+                    <img src="assets/black-vinyl.png" alt="Honey Trap black vinyl record" class="merch-image">
+                </a>
                 <a href="#contact" class="notify-button">Subscribe to Buy</a>
             </div>
             <div class="merch-item">
-                <img src="assets/blue-vinyl.png" alt="Honey Trap blue vinyl record" class="merch-image">
+                <a href="#contact">
+                    <img src="assets/blue-vinyl.png" alt="Honey Trap blue vinyl record" class="merch-image">
+                </a>
                 <a href="#contact" class="notify-button">Subscribe to Buy</a>
             </div>
         </div>
@@ -1044,7 +1063,7 @@
       <div class="contact-content">
         <h2 class="section-title">Contact</h2>
         <div class="contact-info">
-          <p class="subscribe-text">Subscribe to hear about new music and gig dates.</p>
+          <p class="subscribe-text">Subscribe for music, merch and gig dates.</p>
 
           <!-- MailerLite embedded form -->
           <div id="mlb2-43515916" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-43515916">
@@ -1121,7 +1140,7 @@
           <p class="enquiries">To say hello, email us at:<br>
             <a href="mailto:honeytrapsounds@gmail.com">honeytrapsounds@gmail.com</a><br>
               <br>
-               We respond to all messages.<br>
+               We respond to all messages!<br>
           </p>
         </div>
       </div>
