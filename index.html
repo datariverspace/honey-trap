@@ -227,6 +227,7 @@
         #album {
             background-color: var(--paper);
             border-top: 1px solid var(--warm-brown);
+            scroll-margin-top: 110px;
         }
         
         .section-title {
@@ -316,6 +317,7 @@
              background-color: var(--paper);
              padding-bottom: 100px;
              border-top: 1px solid var(--warm-brown);
+             scroll-margin-top: 110px;
         }
 
         .merch-container {
@@ -349,6 +351,7 @@
             padding: 100px 30px;
             border-top: 1px solid var(--warm-brown);
             border-bottom: 1px solid var(--warm-brown);
+            scroll-margin-top: 110px;
         }
 
         .gigs-content {
@@ -461,6 +464,7 @@
             padding: 100px 30px;
             border-top: 1px solid var(--warm-brown);
             border-bottom: 1px solid var(--warm-brown);
+            scroll-margin-top: 110px;
         }
         
         .about-content {
@@ -510,6 +514,7 @@
             background-color: var(--paper-darker);
             padding: 100px 30px;
             border-top: 1px solid var(--warm-brown);
+            scroll-margin-top: 110px;
         }
 
         .contact-content {
@@ -1195,6 +1200,25 @@
     <script>
     // ── gigs DATES FROM GOOGLE SHEETS ──
     const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/11gUte5KqPRDkyx4M_YAyT3YBZJvNTKzE9XQ-KX8G-FI/export?format=csv&gid=0';
+
+    // Re-applies the URL's hash scroll target once late-arriving content
+    // (like the async gig list) has finished changing the page's layout.
+    // Without this, a direct link such as /#contact can land correctly for
+    // a moment and then get silently shifted off-target when the gigs
+    // section grows taller above it.
+    function restoreHashScroll() {
+        if (!location.hash) return;
+        let target;
+        try {
+            target = document.querySelector(location.hash);
+        } catch (e) {
+            return;
+        }
+        if (target) {
+            target.scrollIntoView({ behavior: 'auto', block: 'start' });
+        }
+    }
+
     async function loadgigsDates() {
         const loadingEl = document.getElementById('gigs-loading');
         const emptyEl   = document.getElementById('gigs-empty');
@@ -1244,6 +1268,9 @@
             console.error('gigs dates error:', err);
             showEmpty();
         }
+        // Layout has now settled (rows added or empty-state shown) —
+        // correct the scroll position if the page was loaded with a hash.
+        restoreHashScroll();
         function showEmpty() {
             loadingEl.style.display = 'none';
             emptyEl.style.display   = 'block';
