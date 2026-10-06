@@ -1,1534 +1,620 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Honey Trap</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Honey Trap</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link rel="apple-touch-icon" href="assets/favicon.png">
+<meta name="description" content="Honey Trap are a three-piece band from Leeds. Listen to their debut album 'You Never Hear The Javelin That Kills You', buy merch, and find upcoming gigs.">
+<meta name="keywords" content="Honey Trap, Honey Trap band, Leeds band, Leeds indie band, Leeds music, indie rock Leeds, Honey Trap gigs, You Never Hear The Javelin That Kills You">
+<meta name="author" content="Honey Trap">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://honeytrap.band/">
+<meta property="og:title" content="Honey Trap | Leeds Band">
+<meta property="og:description" content="Three-piece band from Leeds. Debut album out now.">
+<meta property="og:image" content="assets/javelinalbum.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://honeytrap.band/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MusicGroup","name":"Honey Trap","description":"Three-piece indie band from Leeds, UK.","genre":["Alternative","Rock"],"foundingLocation":{"@type":"Place","name":"Leeds, UK"},"url":"https://honeytrap.band","sameAs":["https://instagram.com/honeytrapsounds","https://open.spotify.com/artist/3urpGnVmKgiaJygp1YAKNz","https://honeytrapsounds.bandcamp.com"]}
+</script>
 
-    <!-- SEO -->
-    <meta name="description" content="Honey Trap are a three-piece band from Leeds. Listen to their debut album 'You Never Hear The Javelin That Kills You', buy merch, and find upcoming gigs.">
-    <meta name="keywords" content="Honey Trap, Honey Trap band, Leeds band, Leeds indie band, Leeds music, indie rock Leeds, Honey Trap gigs, Honey Trap gigs, You Never Hear The Javelin That Kills You">
-    <meta name="author" content="Honey Trap">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://honeytrap.band/">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Old+Standard+TT:wght@400;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--cream:#F7F3E9;--dark-brown:#3C2A1E;--warm-brown:#8B6F47;--gold:#B8860B;--paper:#FAF7F0;--paper-darker:#F5F2E9}
+body{font-family:'Crimson Text',serif;background-color:var(--cream);color:var(--dark-brown);line-height:1.6;
+ background-image:radial-gradient(circle at 20% 80%,rgba(60,42,30,.03) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(139,111,71,.03) 0%,transparent 50%)}
+.footer-image{position:static;width:100%;height:70px;object-fit:cover;display:block}
 
-    <!-- Open Graph (social sharing) -->
-    <meta property="og:title" content="Honey Trap | Leeds Band">
-    <meta property="og:description" content="Three-piece band from Leeds. Debut album out now.">
-    <meta property="og:image" content="assets/javelinalbum.jpg">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://honeytrap.band/">
+/* Nav */
+nav{position:fixed;top:0;width:100%;background:rgba(247,243,233,.95);backdrop-filter:blur(5px);border-bottom:1px solid var(--warm-brown);z-index:1000;padding:15px 0}
+.nav-container{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 30px}
+.logo{font-family:'Old Standard TT',serif;font-size:28px;font-weight:700;color:var(--dark-brown);text-decoration:none;letter-spacing:2px}
+.nav-links{display:flex;list-style:none;gap:40px}
+.nav-links a{color:var(--dark-brown);text-decoration:none;font-size:16px;transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+.menu-toggle{display:none;flex-direction:column;justify-content:space-between;width:26px;height:20px;background:none;border:none;cursor:pointer;padding:0;z-index:1001}
+.menu-toggle span{display:block;width:100%;height:2px;background:var(--dark-brown);border-radius:1px}
+.nav-links.mobile-open{display:flex!important;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:var(--cream);border-bottom:1px solid var(--warm-brown);padding:20px 30px;gap:20px;text-align:center}
 
-    <!-- JSON-LD structured data for Google -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MusicGroup",
-      "name": "Honey Trap",
-      "description": "Three-piece indie band from Leeds, UK.",
-      "genre": ["Alternative", "Rock"],
-      "foundingLocation": {
-        "@type": "Place",
-        "name": "Leeds, UK"
-      },
-      "url": "https://honeytrap.band",
-      "sameAs": [
-        "https://instagram.com/honeytrapsounds",
-        "https://open.spotify.com/artist/3urpGnVmKgiaJygp1YAKNz",
-        "https://honeytrapsounds.bandcamp.com"
-      ]
-    }
-    </script>
+/* Hero */
+.hero{height:100vh;position:relative;overflow:hidden}
+.hero-image{width:100%;height:100%;position:relative}
+.background-image{width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.band-name{font-family:'Old Standard TT',serif;font-size:clamp(3rem,6vw,5rem);font-weight:700;color:var(--cream);letter-spacing:3px;text-shadow:2px 2px 4px rgba(0,0,0,.8);user-select:none;-webkit-user-select:none}
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Old+Standard+TT:wght@400;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --cream: #F7F3E9;
-            --dark-brown: #3C2A1E;
-            --warm-brown: #8B6F47;
-            --gold: #B8860B;
-            --black: #1C1C1C;
-            --paper: #FAF7F0;
-            --paper-darker: #F5F2E9;
-        }
-        
-        body {
-            font-family: 'Crimson Text', serif;
-            background-color: var(--cream);
-            color: var(--dark-brown);
-            line-height: 1.6;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(60, 42, 30, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(139, 111, 71, 0.03) 0%, transparent 50%);
-        }
+/* Sections */
+.album-section{padding:100px 30px;text-align:center}
+#album{background:var(--paper);border-top:1px solid var(--warm-brown)}
+.section-title{font-family:'Old Standard TT',serif;font-size:36px;font-weight:700;margin-bottom:60px;letter-spacing:1px}
+#album,#merch,#gigs,.about,.contact,#uploader{scroll-margin-top:110px}
+.album-announcement{background:var(--paper);border:2px solid var(--warm-brown);padding:60px 40px;max-width:600px;margin:0 auto;box-shadow:0 4px 20px rgba(60,42,30,.1)}
+.album-art-image{width:200px;height:200px;border:3px solid var(--warm-brown);margin:0 auto 30px;object-fit:cover;display:block}
+.album-announcement h4{font-family:'Old Standard TT',serif;font-size:28px;font-weight:700;margin-bottom:15px;line-height:1.3}
+.album-meta{font-size:16px;color:var(--warm-brown);margin-bottom:25px;font-weight:600}
+.notify-button{display:inline-block;padding:12px 30px;background:var(--gold);color:var(--dark-brown);text-decoration:none;font-weight:600;border:2px solid var(--gold);transition:all .3s;font-size:16px;letter-spacing:1px}
+.notify-button:hover{background:transparent;color:var(--gold)}
+.album-announcement .notify-button{display:block;width:fit-content;margin:0 auto 15px}
 
-        /* Footer image - now a normal, static part of the page flow that sits
-           beneath the "all rights reserved" footer. It scrolls away with the
-           rest of the page instead of sticking to the viewport. */
-        .footer-image {
-            position: static;
-            width: 100%;
-            height: 70px;
-            object-fit: cover;
-            display: block;
-        }
+/* Merch */
+#merch{background:var(--paper);padding-bottom:100px;border-top:1px solid var(--warm-brown)}
+.merch-container{display:flex;justify-content:center;align-items:flex-start;gap:40px;flex-wrap:wrap;max-width:900px;margin:0 auto}
+.merch-item{flex-basis:300px;text-align:center}
+.merch-image{width:100%;height:auto;border:2px solid var(--warm-brown);box-shadow:0 4px 20px rgba(60,42,30,.1)}
+.merch-item .notify-button{margin-top:20px}
 
-        /* Desktop gets a taller footer image; mobile keeps its existing proportion */
-        @media (min-width: 800px) {
-            .footer-image {
-                height: 150px;
-            }
-        }
+/* Gigs */
+#gigs{background:var(--paper-darker);padding:100px 30px;border-top:1px solid var(--warm-brown);border-bottom:1px solid var(--warm-brown)}
+.gigs-content{max-width:700px;margin:0 auto;text-align:center}
+.gigs-note{margin-bottom:24px}
+.gigs-row{display:grid;grid-template-columns:140px 1fr auto;align-items:center;gap:20px;padding:22px 0;border-bottom:1px solid rgba(139,111,71,.3);text-align:left}
+.gigs-row:first-child{border-top:1px solid rgba(139,111,71,.3)}
+.gigs-row:hover{background:rgba(184,134,11,.04)}
+.gigs-date{font-family:'Old Standard TT',serif;font-size:15px;font-weight:700;color:var(--gold);letter-spacing:.5px;white-space:nowrap}
+.gigs-info{display:flex;flex-direction:column;gap:3px;text-align:center}
+.gigs-event{font-family:'Old Standard TT',serif;font-size:17px;font-weight:700}
+.gigs-location{font-size:15px;color:var(--warm-brown);font-style:italic}
+.gigs-ticket-btn{display:inline-block;padding:8px 20px;color:var(--dark-brown);text-decoration:none;font-weight:600;border:1px solid var(--warm-brown);transition:all .3s;font-size:14px;letter-spacing:.5px;white-space:nowrap;font-family:'Crimson Text',serif}
+.gigs-ticket-btn:hover{background:var(--gold);border-color:var(--gold)}
+.gigs-ticket-btn.sold-out{opacity:.45;cursor:default;pointer-events:none}
+#gigs-loading,#gigs-empty{text-align:center;font-style:italic;color:var(--warm-brown);font-size:17px;padding:40px 0}
+#gigs-empty{display:none}
 
-        /* Mobile menu toggle (hamburger) - hidden on desktop, shown only on mobile via media query below */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 26px;
-            height: 20px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            z-index: 1001;
-        }
+/* About */
+.about{background:var(--paper-darker);padding:100px 30px;border-top:1px solid var(--warm-brown);border-bottom:1px solid var(--warm-brown)}
+.about-content{max-width:640px;margin:0 auto;text-align:center}
+.about-text{max-width:560px;margin:0 auto;text-align:left;font-size:19px;line-height:1.8}
+.about-text p{margin-bottom:22px}
+.about-text p:last-child{margin-bottom:0}
+.band-members{margin-top:30px;font-style:italic;color:var(--warm-brown)}
+.band-members span{display:block}
 
-        .menu-toggle span {
-            display: block;
-            width: 100%;
-            height: 2px;
-            background-color: var(--dark-brown);
-            border-radius: 1px;
-        }
+/* Contact */
+.contact{background:var(--paper-darker);padding:100px 30px;border-top:1px solid var(--warm-brown)}
+.contact-content{max-width:900px;margin:0 auto;text-align:center}
+.contact-info{background:var(--paper);border:1px solid var(--warm-brown);padding:40px;max-width:500px;margin:0 auto}
+.contact-info p{font-size:18px;margin-bottom:15px}
+.subscribe-text{margin-bottom:20px}
+.contact-info a{color:var(--gold);text-decoration:none;font-weight:600}
+.contact-info a:hover{text-decoration:underline}
+.enquiries{margin-top:40px}
 
-        .nav-links.mobile-open {
-            display: flex !important;
-            flex-direction: column;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background-color: var(--cream);
-            border-bottom: 1px solid var(--warm-brown);
-            padding: 20px 30px;
-            gap: 20px;
-            text-align: center;
-        }
-        
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: rgba(247, 243, 233, 0.95);
-            backdrop-filter: blur(5px);
-            border-bottom: 1px solid var(--warm-brown);
-            z-index: 1000;
-            padding: 15px 0;
-        }
-        
-        .nav-container {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 30px;
-        }
-        
-        .logo {
-            font-family: 'Old Standard TT', serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--dark-brown);
-            text-decoration: none;
-            letter-spacing: 2px;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 40px;
-        }
-        
-        .nav-links a {
-            color: var(--dark-brown);
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-        
-        .background-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .band-name {
-            font-family: 'Old Standard TT', serif;
-            font-size: clamp(3rem, 6vw, 5rem);
-            font-weight: 700;
-            color: var(--cream);
-            letter-spacing: 3px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-            user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-        }
-        
-        /* Album Section */
-        .album-section {
-            padding: 100px 30px;
-            text-align: center;
-        }
+/* MailerLite embed */
+#mlb2-43515916.ml-form-embedContainer{box-sizing:border-box;display:table;margin:0 auto;width:100%!important}
+#mlb2-43515916 .ml-form-embedWrapper{display:inline-block!important;width:100%;margin:0 auto}
+#mlb2-43515916 .ml-form-align-center{text-align:center}
+#mlb2-43515916 .ml-form-embedBody{padding:0}
+#mlb2-43515916 .ml-form-embedContent{display:none}
+#mlb2-43515916 .ml-form-formContent{width:100%;margin:0}
+#mlb2-43515916 .ml-form-horizontalRow{display:flex;flex-wrap:wrap;gap:10px;width:100%}
+#mlb2-43515916 .ml-input-horizontal,#mlb2-43515916 .ml-button-horizontal{flex:1 1 100%}
+#mlb2-43515916 .ml-form-embedSubmitLoad{display:inline-block;width:20px;height:20px}
+#mlb2-43515916 .ml-form-embedSubmitLoad:after{content:" ";display:block;width:11px;height:11px;margin:1px;border-radius:50%;border:4px solid var(--paper);border-color:var(--paper) var(--paper) var(--paper) transparent;animation:mlspin 1.2s linear infinite}
+@keyframes mlspin{to{transform:rotate(360deg)}}
+#mlb2-43515916 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+#mlb2-43515916 .ml-mobileButton-horizontal{display:none}
+#mlb2-43515916 *{font-family:'Crimson Text',serif!important}
+#mlb2-43515916 input[type=email]{width:100%!important;padding:12px!important;border:2px solid var(--warm-brown)!important;background:var(--paper)!important;color:var(--dark-brown)!important;font-size:16px!important;border-radius:0!important;box-sizing:border-box!important;line-height:normal!important}
+#mlb2-43515916 input[type=email]::placeholder{color:var(--warm-brown);opacity:.8}
+#mlb2-43515916 input[type=email]:focus{outline:none!important;border-color:var(--gold)!important}
+#mlb2-43515916 button.primary{width:100%!important;padding:12px 30px!important;background:var(--gold)!important;color:var(--dark-brown)!important;font-weight:600!important;font-size:16px!important;letter-spacing:1px!important;border:2px solid var(--gold)!important;border-radius:0!important;cursor:pointer!important;transition:all .3s!important;height:auto!important;line-height:normal!important}
+#mlb2-43515916 button.primary:hover{background:transparent!important;color:var(--gold)!important}
+#mlb2-43515916 .ml-form-successContent{text-align:center}
+#mlb2-43515916 .ml-form-successContent h4{font-family:'Old Standard TT',serif!important;font-size:22px;color:var(--dark-brown)!important;margin-bottom:10px}
+#mlb2-43515916 .ml-form-successContent p{color:var(--warm-brown)!important;font-style:italic}
 
-        #album {
-            background-color: var(--paper);
-            border-top: 1px solid var(--warm-brown);
-            scroll-margin-top: 110px;
-        }
-        
-        .section-title {
-            font-family: 'Old Standard TT', serif;
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 60px;
-            color: var(--dark-brown);
-            letter-spacing: 1px;
-        }
-        
-        .album-announcement {
-            background-color: var(--paper);
-            border: 2px solid var(--warm-brown);
-            padding: 60px 40px;
-            max-width: 600px;
-            margin: 0 auto;
-            box-shadow: 0 4px 20px rgba(60, 42, 30, 0.1);
-        }
-        
-        .album-art-placeholder {
-            width: 200px;
-            height: 200px;
-            background-color: var(--dark-brown);
-            margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 3px solid var(--warm-brown);
-        }
-        
-        .album-art-placeholder span {
-            font-size: 48px;
-            color: var(--gold);
-        }
-        
-        .album-announcement h3 {
-            font-family: 'Old Standard TT', serif;
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--dark-brown);
-            line-height: 1.3;
-        }
-        
-        .album-meta {
-            font-size: 16px;
-            color: var(--warm-brown);
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
-        
-        .album-description {
-            font-size: 18px;
-            color: var(--dark-brown);
-            margin-bottom: 30px;
-            font-style: italic;
-            line-height: 1.5;
-        }
-        
-        .notify-button {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--gold);
-            color: var(--dark-brown);
-            text-decoration: none;
-            font-weight: 600;
-            border: 2px solid var(--gold);
-            transition: all 0.3s ease;
-            font-size: 16px;
-            letter-spacing: 1px;
-        }
-        
-        .notify-button:hover {
-            background-color: transparent;
-            color: var(--gold);
-        }
+/* Uploader */
+.uploader{background:var(--paper);padding:100px 30px;border-top:1px solid var(--warm-brown);text-align:center}
+.uploader-content{max-width:900px;margin:0 auto}
+.uploader-box{background:var(--paper-darker);border:1px solid var(--warm-brown);padding:40px;max-width:500px;margin:0 auto;text-align:left}
+.fu-sub{font-size:18px;text-align:center;margin-bottom:26px}
+.fu-row{display:flex;gap:16px;margin-bottom:14px}
+.fu-field{flex:1;margin-bottom:14px}
+.fu-field label{display:block;font-size:14px;color:var(--warm-brown);margin-bottom:6px}
+.fu-field input[type=text]{width:100%;font-family:'Crimson Text',serif;font-size:16px;color:var(--dark-brown);background:var(--paper);border:1px solid var(--warm-brown);padding:10px 12px;outline:none}
+.fu-field input[type=text]:focus{border-color:var(--gold)}
+.fu-dropzone{display:block;border:2px dashed var(--warm-brown);background:var(--paper);padding:34px 16px;text-align:center;cursor:pointer;margin:6px 0 18px;transition:border-color .25s,background .25s}
+.fu-dropzone.fu-drag{border-color:var(--gold);background:rgba(184,134,11,.08)}
+.fu-dropzone input{display:none}
+.fu-dz-title{font-family:'Old Standard TT',serif;font-size:18px;margin-bottom:4px}
+.fu-dz-sub{font-size:14px;color:var(--warm-brown)}
+.fu-setlist{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.fu-track{border:1px solid var(--warm-brown);background:var(--paper);padding:10px 14px;display:flex;align-items:center;gap:12px}
+.fu-track-body{flex:1;min-width:0}
+.fu-track-name{font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fu-track-bar{height:3px;background:rgba(60,42,30,.12);margin-top:7px;position:relative;overflow:hidden}
+.fu-track-bar-fill{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--gold);transition:width .15s linear}
+.fu-track-bar-fill.fu-error{background:#A33}
+.fu-track-size{font-size:13px;color:var(--warm-brown);width:60px;text-align:right;flex-shrink:0}
+.fu-track-status{width:18px;text-align:center;color:var(--gold);flex-shrink:0}
+.fu-send{display:block;width:100%;font-family:'Crimson Text',serif;font-weight:600;font-size:17px;letter-spacing:1px;padding:12px 30px;background:var(--gold);color:var(--dark-brown);border:2px solid var(--gold);cursor:pointer;transition:all .3s}
+.fu-send:hover:not(:disabled){background:transparent;color:var(--gold)}
+.fu-send:disabled{background:var(--warm-brown);border-color:var(--warm-brown);color:var(--paper);cursor:not-allowed}
+.fu-status{font-size:14px;color:var(--warm-brown);margin-top:12px;min-height:18px}
+.fu-status.fu-error{color:#A33}
+.fu-done{display:none;text-align:center}
+.fu-done.fu-show{display:block}
+.fu-done p{color:var(--warm-brown);margin-bottom:20px;font-size:17px}
+.fu-again{font-family:'Crimson Text',serif;font-size:14px;background:none;border:1px solid var(--warm-brown);color:var(--dark-brown);padding:10px 20px;cursor:pointer}
+.fu-again:hover{border-color:var(--gold);color:var(--gold)}
 
-        .album-announcement .notify-button {
-            display: block;
-            width: fit-content;
-            margin: 0 auto 15px;
-        }
+/* Footer */
+footer{background:var(--dark-brown);color:var(--cream);text-align:center;padding:30px 20px;font-size:14px}
+.social-row{display:flex;justify-content:center;gap:24px;margin-bottom:20px}
+.footer-links{font-size:13px;margin-top:12px}
+.footer-links a{color:var(--gold);text-decoration:none}
 
-        /* Merch Section */
-        #merch {
-             background-color: var(--paper);
-             padding-bottom: 100px;
-             border-top: 1px solid var(--warm-brown);
-             scroll-margin-top: 110px;
-        }
+/* Subscribe popup */
+.ht-pop{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(28,18,12,.65);backdrop-filter:blur(3px);opacity:0;transition:opacity .35s}
+.ht-pop.ht-show{display:flex}
+.ht-pop.ht-in{opacity:1}
+.ht-pop-card{position:relative;width:100%;max-width:440px;background:var(--paper);border:2px solid var(--warm-brown);box-shadow:0 10px 40px rgba(0,0,0,.35);padding:38px 30px 30px;text-align:center;transform:translateY(14px);transition:transform .35s}
+.ht-pop.ht-in .ht-pop-card{transform:none}
+.ht-pop-close{position:absolute;top:8px;right:12px;background:none;border:none;cursor:pointer;font-size:28px;line-height:1;color:var(--warm-brown)}
+.ht-pop-close:hover{color:var(--gold)}
+.ht-pop-card h3{font-family:'Old Standard TT',serif;font-size:26px;margin-bottom:10px}
+.ht-pop-card p{font-size:18px;margin-bottom:20px}
+.ht-pop-card input[type=email]{width:100%;padding:12px;margin-bottom:10px;font-family:'Crimson Text',serif;font-size:16px;border:2px solid var(--warm-brown);border-radius:0;background:var(--paper);color:var(--dark-brown);outline:none}
+.ht-pop-card input[type=email]:focus{border-color:var(--gold)}
+.ht-submit{width:100%;padding:12px 30px;cursor:pointer;font-family:'Crimson Text',serif;font-weight:600;font-size:16px;letter-spacing:1px;background:var(--gold);color:var(--dark-brown);border:2px solid var(--gold);border-radius:0;transition:all .3s}
+.ht-submit:hover{background:transparent;color:var(--gold)}
+.ht-pop-skip{margin-top:14px;background:none;border:none;cursor:pointer;font-family:'Crimson Text',serif;font-size:14px;font-style:italic;color:var(--warm-brown);text-decoration:underline}
+.ht-pop-thanks{display:none}
+.ht-pop-thanks p{font-style:italic;color:var(--warm-brown);margin:0}
+.ht-pop-card.ht-done .ht-pop-formwrap{display:none}
+.ht-pop-card.ht-done .ht-pop-thanks{display:block}
 
-        .merch-container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 40px;
-            flex-wrap: wrap;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+@media(min-width:800px){.footer-image{height:150px}}
 
-        .merch-item {
-            flex-basis: 300px;
-            text-align: center;
-        }
-
-        .merch-image {
-            width: 100%;
-            height: auto;
-            border: 2px solid var(--warm-brown);
-            box-shadow: 0 4px 20px rgba(60, 42, 30, 0.1);
-        }
-        
-        .merch-item .notify-button {
-            margin-top: 20px;
-        }
-
-        #gigs {
-            background-color: var(--paper-darker);
-            padding: 100px 30px;
-            border-top: 1px solid var(--warm-brown);
-            border-bottom: 1px solid var(--warm-brown);
-            scroll-margin-top: 110px;
-        }
-
-        .gigs-content {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .gigs-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .gigs-row {
-            display: grid;
-            grid-template-columns: 140px 1fr auto;
-            align-items: center;
-            gap: 20px;
-            padding: 22px 0;
-            border-bottom: 1px solid rgba(139, 111, 71, 0.3);
-            transition: background 0.2s ease;
-            text-align: left;
-        }
-
-        .gigs-row:first-child {
-            border-top: 1px solid rgba(139, 111, 71, 0.3);
-        }
-
-        .gigs-row:hover {
-            background-color: rgba(184, 134, 11, 0.04);
-        }
-
-        .gigs-date {
-            font-family: 'Old Standard TT', serif;
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--gold);
-            letter-spacing: 0.5px;
-            white-space: nowrap;
-            text-align: left;
-        }
-
-        .gigs-info {
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
-            text-align: center;
-        }
-
-        .gigs-event {
-            font-family: 'Old Standard TT', serif;
-            font-size: 17px;
-            font-weight: 700;
-            color: var(--dark-brown);
-        }
-
-        .gigs-location {
-            font-size: 15px;
-            color: var(--warm-brown);
-            font-style: italic;
-        }
-
-        .gigs-ticket-btn {
-            display: inline-block;
-            padding: 8px 20px;
-            background-color: transparent;
-            color: var(--dark-brown);
-            text-decoration: none;
-            font-weight: 600;
-            border: 1px solid var(--warm-brown);
-            transition: all 0.3s ease;
-            font-size: 14px;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
-            font-family: 'Crimson Text', serif;
-        }
-
-        .gigs-ticket-btn:hover {
-            background-color: var(--gold);
-            border-color: var(--gold);
-            color: var(--dark-brown);
-        }
-
-        .gigs-ticket-btn.sold-out {
-            opacity: 0.45;
-            cursor: default;
-            pointer-events: none;
-        }
-
-        #gigs-loading {
-            text-align: center;
-            font-style: italic;
-            color: var(--warm-brown);
-            font-size: 17px;
-            padding: 40px 0;
-        }
-
-        #gigs-empty {
-            text-align: center;
-            font-style: italic;
-            color: var(--warm-brown);
-            font-size: 17px;
-            padding: 40px 0;
-            display: none;
-        }
-        
-        /* About Section */
-        .about {
-            background-color: var(--paper-darker);
-            padding: 100px 30px;
-            border-top: 1px solid var(--warm-brown);
-            border-bottom: 1px solid var(--warm-brown);
-            scroll-margin-top: 110px;
-        }
-        
-        .about-content {
-            max-width: 640px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .about-text {
-            max-width: 560px;
-            margin: 0 auto;
-            text-align: left;
-            font-size: 19px;
-            color: var(--dark-brown);
-            line-height: 1.8;
-        }
-
-        .about-text p {
-            margin-bottom: 22px;
-        }
-
-        .about-text p:last-child {
-            margin-bottom: 0;
-        }
-
-        .band-members {
-            margin-top: 30px;
-            font-style: italic;
-            color: var(--warm-brown);
-        }
-
-        .band-members span {
-            display: block;
-        }
-
-        .album-art-image {
-            width: 200px;
-            height: 200px;
-            border: 3px solid var(--warm-brown);
-            margin: 0 auto 30px;
-            object-fit: cover;
-            display: block;
-        }
-        
-        /* Contact Section */
-        .contact {
-            background-color: var(--paper-darker);
-            padding: 100px 30px;
-            border-top: 1px solid var(--warm-brown);
-            scroll-margin-top: 110px;
-        }
-
-        .contact-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .contact-info {
-            background-color: var(--paper);
-            border: 1px solid var(--warm-brown);
-            padding: 40px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .contact-info p {
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
-
-        .subscribe-text {
-            margin-bottom: 20px;
-        }
-        
-        .contact-info a {
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        /* ── MailerLite embed — structural rules the widget script relies on ── */
-        #mlb2-43515916.ml-form-embedContainer {
-            box-sizing: border-box;
-            display: table;
-            margin: 0 auto;
-            width: 100% !important;
-        }
-        #mlb2-43515916 .ml-form-embedWrapper {
-            display: inline-block !important;
-            width: 100%;
-            margin: 0 auto;
-        }
-        #mlb2-43515916 .ml-form-align-center {
-            text-align: center;
-        }
-        #mlb2-43515916 .ml-form-embedBody {
-            padding: 0;
-        }
-        #mlb2-43515916 .ml-form-embedContent {
-            display: none; /* our own "Subscribe to keep informed..." text above covers this */
-        }
-        #mlb2-43515916 .ml-form-formContent {
-            width: 100%;
-            margin: 0;
-        }
-        #mlb2-43515916 .ml-form-horizontalRow {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            width: 100%;
-        }
-        #mlb2-43515916 .ml-input-horizontal {
-            flex: 1 1 100%;
-        }
-        #mlb2-43515916 .ml-button-horizontal {
-            flex: 1 1 100%;
-        }
-        #mlb2-43515916 .ml-form-embedSubmitLoad {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-        }
-        #mlb2-43515916 .ml-form-embedSubmitLoad:after {
-            content: " ";
-            display: block;
-            width: 11px;
-            height: 11px;
-            margin: 1px;
-            border-radius: 50%;
-            border: 4px solid var(--paper);
-            border-color: var(--paper) var(--paper) var(--paper) transparent;
-            animation: ml-form-embedSubmitLoad 1.2s linear infinite;
-        }
-        @keyframes ml-form-embedSubmitLoad {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        #mlb2-43515916 .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0,0,0,0);
-            border: 0;
-        }
-        #mlb2-43515916 .ml-mobileButton-horizontal {
-            display: none;
-        }
-
-        /* ── MailerLite embed — visual styling matched to site palette ── */
-        #mlb2-43515916 * {
-            font-family: 'Crimson Text', serif !important;
-        }
-        #mlb2-43515916 input[type="email"] {
-            width: 100% !important;
-            padding: 12px !important;
-            border: 2px solid var(--warm-brown) !important;
-            background-color: var(--paper) !important;
-            color: var(--dark-brown) !important;
-            font-size: 16px !important;
-            border-radius: 0 !important;
-            box-sizing: border-box !important;
-            line-height: normal !important;
-        }
-        #mlb2-43515916 input[type="email"]::placeholder {
-            color: var(--warm-brown);
-            opacity: 0.8;
-        }
-        #mlb2-43515916 input[type="email"]:focus {
-            outline: none !important;
-            border-color: var(--gold) !important;
-        }
-        #mlb2-43515916 button.primary {
-            width: 100% !important;
-            padding: 12px 30px !important;
-            background-color: var(--gold) !important;
-            color: var(--dark-brown) !important;
-            font-weight: 600 !important;
-            font-size: 16px !important;
-            letter-spacing: 1px !important;
-            border: 2px solid var(--gold) !important;
-            border-radius: 0 !important;
-            cursor: pointer !important;
-            transition: all 0.3s ease !important;
-            height: auto !important;
-            line-height: normal !important;
-        }
-        #mlb2-43515916 button.primary:hover {
-            background-color: transparent !important;
-            color: var(--gold) !important;
-        }
-        #mlb2-43515916 .ml-form-successContent {
-            text-align: center;
-        }
-        #mlb2-43515916 .ml-form-successContent h4 {
-            font-family: 'Old Standard TT', serif !important;
-            font-size: 22px;
-            color: var(--dark-brown) !important;
-            margin-bottom: 10px;
-        }
-        #mlb2-43515916 .ml-form-successContent p {
-            color: var(--warm-brown) !important;
-            font-style: italic;
-        }
-        
-        .enquiries {
-            margin-top: 40px;
-        }
-
-        /* ── Uploader Section ── */
-        .uploader {
-            background-color: var(--paper);
-            padding: 100px 30px;
-            border-top: 1px solid var(--warm-brown);
-            text-align: center;
-        }
-
-        .uploader-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .uploader-box {
-            background-color: var(--paper-darker);
-            border: 1px solid var(--warm-brown);
-            padding: 40px;
-            max-width: 500px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        #uploader {
-            scroll-margin-top: 110px; /* clears the fixed nav when jumped to via #uploader */
-        }
-
-        .uploader-box .fu-sub {
-            font-size: 18px;
-            text-align: center;
-            margin-bottom: 26px;
-            color: var(--dark-brown);
-        }
-
-        .fu-row { display: flex; gap: 16px; margin-bottom: 14px; }
-        .fu-field { flex: 1; margin-bottom: 14px; }
-        .fu-field label {
-            display: block;
-            font-size: 14px;
-            color: var(--warm-brown);
-            margin-bottom: 6px;
-        }
-        .fu-field input[type=text] {
-            width: 100%;
-            font-family: 'Crimson Text', serif;
-            font-size: 16px;
-            color: var(--dark-brown);
-            background: var(--paper);
-            border: 1px solid var(--warm-brown);
-            padding: 10px 12px;
-            outline: none;
-            box-sizing: border-box;
-        }
-        .fu-field input[type=text]:focus { border-color: var(--gold); }
-
-        .fu-dropzone {
-            display: block;
-            border: 2px dashed var(--warm-brown);
-            background: var(--paper);
-            padding: 34px 16px;
-            text-align: center;
-            cursor: pointer;
-            margin: 6px 0 18px;
-            transition: border-color 0.25s, background 0.25s;
-        }
-        .fu-dropzone.fu-drag { border-color: var(--gold); background: rgba(184,134,11,0.08); }
-        .fu-dropzone input { display: none; }
-        .fu-dz-title {
-            font-family: 'Old Standard TT', serif;
-            font-size: 18px;
-            color: var(--dark-brown);
-            margin-bottom: 4px;
-        }
-        .fu-dz-sub { font-size: 14px; color: var(--warm-brown); }
-
-        .fu-setlist { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
-        .fu-track {
-            border: 1px solid var(--warm-brown);
-            background: var(--paper);
-            padding: 10px 14px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .fu-track-body { flex: 1; min-width: 0; }
-        .fu-track-name {
-            font-size: 15px;
-            color: var(--dark-brown);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .fu-track-bar { height: 3px; background: rgba(60,42,30,0.12); margin-top: 7px; position: relative; overflow: hidden; }
-        .fu-track-bar-fill { position: absolute; left:0; top:0; bottom:0; width:0%; background: var(--gold); transition: width 0.15s linear; }
-        .fu-track-bar-fill.fu-error { background: #A33; }
-        .fu-track-size { font-size: 13px; color: var(--warm-brown); width: 60px; text-align: right; flex-shrink:0; }
-        .fu-track-status { width: 18px; text-align:center; color: var(--gold); flex-shrink:0; }
-
-        .fu-send {
-            display: block;
-            width: 100%;
-            font-family: 'Crimson Text', serif;
-            font-weight: 600;
-            font-size: 17px;
-            letter-spacing: 1px;
-            padding: 12px 30px;
-            background-color: var(--gold);
-            color: var(--dark-brown);
-            border: 2px solid var(--gold);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .fu-send:hover:not(:disabled) { background-color: transparent; color: var(--gold); }
-        .fu-send:disabled { background: var(--warm-brown); border-color: var(--warm-brown); color: var(--paper); cursor: not-allowed; }
-
-        .fu-status { font-size: 14px; color: var(--warm-brown); margin-top: 12px; min-height: 18px; }
-        .fu-status.fu-error { color: #A33; }
-
-        .fu-done { display: none; text-align: center; }
-        .fu-done.fu-show { display: block; }
-        .fu-done p { color: var(--warm-brown); margin-bottom: 20px; font-size: 17px; }
-        .fu-again {
-            font-family: 'Crimson Text', serif;
-            font-size: 14px;
-            background: none;
-            border: 1px solid var(--warm-brown);
-            color: var(--dark-brown);
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-        .fu-again:hover { border-color: var(--gold); color: var(--gold); }
-
-        @media (max-width: 768px) {
-            .uploader { padding: 60px 20px; }
-            .uploader-box { padding: 28px 20px; max-width: 100%; }
-            .fu-row { flex-direction: column; gap: 0; }
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark-brown);
-            color: var(--cream);
-            text-align: center;
-            padding: 40px 30px;
-            font-size: 14px;
-        }
-        
-        /* Social Icons */
-        .social-icons {
-            margin-top: 18px;
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-        }
-        
-        .social-icon {
-            color: var(--cream);
-            transition: color 0.3s ease, transform 0.3s ease;
-            display: inline-block;
-        }
-        
-        .social-icon:hover {
-            color: var(--gold);
-            transform: translateY(-2px);
-        }
-        
-        .social-icon svg {
-            width: 26px;
-            height: 26px;
-            fill: currentColor;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-container {
-                padding: 0 20px;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-            
-            .hero-content {
-                padding: 0 20px;
-            }
-            
-            .album-section, .about, .contact, #merch, #gigs {
-                padding: 60px 20px;
-            }
-            
-            .album-announcement {
-                padding: 40px 25px;
-            }
-            
-            .album-art-placeholder {
-                width: 150px;
-                height: 150px;
-            }
-            
-            .album-art-placeholder span {
-                font-size: 36px;
-            }
-
-            .gigs-row {
-                grid-template-columns: 1fr;
-                gap: 8px;
-                padding: 18px 0;
-                text-align: center;
-            }
-
-            .gigs-date {
-                text-align: center;
-            }
-
-            .gigs-ticket-btn {
-                width: fit-content;
-                margin: 0 auto;
-            }
-
-            .contact-info {
-                padding: 30px 20px;
-            }
-
-            .about-text {
-                max-width: 100%;
-                font-size: 18px;
-            }
-        }
-    </style>
+/* Mobile: compact, fewer scrolls */
+@media(max-width:768px){
+ nav{padding:10px 0}
+ .nav-container{padding:0 20px}
+ .logo{font-size:22px;letter-spacing:1.5px}
+ .nav-links{display:none}
+ .menu-toggle{display:flex}
+ .hero{height:38svh;min-height:230px;max-height:340px;margin-top:46px}
+ .band-name{font-size:clamp(2rem,9vw,2.6rem);letter-spacing:2px}
+ .album-section,.about,.contact,#gigs,.uploader{padding:34px 16px}
+ #merch{padding:34px 16px 40px}
+ .section-title{font-size:26px;margin-bottom:22px}
+ #album,#merch,#gigs,.about,.contact,#uploader{scroll-margin-top:62px}
+ .album-announcement{padding:24px 18px}
+ .album-art-image{width:140px;height:140px;margin-bottom:16px}
+ .album-announcement h4{font-size:20px;line-height:1.25;margin-bottom:6px}
+ .album-meta{margin-bottom:14px}
+ .album-announcement .notify-button{display:inline-block;margin:0 4px 8px;padding:10px 18px;font-size:15px}
+ .gigs-note{margin-bottom:12px}
+ .gigs-row{grid-template-columns:1fr auto;gap:4px 12px;padding:12px 0}
+ .gigs-date{order:1}
+ .gigs-row>div:last-child{order:2}
+ .gigs-info{grid-column:1/-1;order:3;text-align:left}
+ .gigs-ticket-btn{padding:6px 14px}
+ .merch-container{gap:14px}
+ .merch-item{flex:0 0 calc(50% - 7px)}
+ .merch-item .notify-button{display:block;margin-top:10px;padding:8px 6px;font-size:14px;letter-spacing:0}
+ .about-text{max-width:100%;font-size:17px;line-height:1.6}
+ .about-text p{margin-bottom:14px}
+ .band-members{margin-top:18px}
+ .contact-info{padding:22px 16px}
+ .enquiries{margin-top:24px}
+ .uploader-box{padding:22px 16px;max-width:100%}
+ .fu-row{flex-direction:column;gap:0}
+ footer{padding:20px 12px}
+ .footer-image{height:50px}
+}
+</style>
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="logo">HONEY TRAP</a>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#album">Album</a></li>
-                <li><a href="#gigs">Gigs</a></li>
-                <li><a href="#merch">Merch</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#uploader">Uploader</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+<nav>
+  <div class="nav-container">
+    <a href="#" class="logo">HONEY TRAP</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#album">Album</a></li>
+      <li><a href="#gigs">Gigs</a></li>
+      <li><a href="#merch">Merch</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#uploader">Uploader</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-image">
+    <img src="" alt="Honey Trap" class="background-image" id="hero-background-image">
+    <div class="hero-overlay"><h1 class="band-name">HONEY TRAP</h1></div>
+  </div>
+</section>
+
+<section id="album" class="album-section">
+  <h2 class="section-title">The Debut Album!</h2>
+  <div class="album-announcement">
+    <a href="https://open.spotify.com/album/7MJxrFWo9WFckoZ0pkDp2U?si=m1_xuJl8QHGXsULVlq_L4Q" target="_blank">
+      <img src="assets/javelinalbum.jpg" alt="You Never Hear The Javelin That Kills You album art" class="album-art-image">
+    </a>
+    <h4>You Never Hear The Javelin That Kills You</h4>
+    <p class="album-meta">Available Now</p>
+    <a href="#merch" class="notify-button">Buy Here</a>
+    <a href="https://open.spotify.com/album/7MJxrFWo9WFckoZ0pkDp2U?si=m1_xuJl8QHGXsULVlq_L4Q" class="notify-button">Listen Here</a>
+  </div>
+</section>
+
+<section id="gigs">
+  <div class="gigs-content">
+    <h2 class="section-title">Gig Dates</h2>
+    <p class="gigs-note">Keep an eye on our socials for exact busking times as these vary with the weather!</p>
+    <div id="gigs-loading">Loading dates...</div>
+    <div id="gigs-empty">No upcoming gigs right now — check back soon.</div>
+    <div id="gigs-list"></div>
+  </div>
+</section>
+
+<section id="merch" class="album-section">
+  <h2 class="section-title">Merchandise</h2>
+  <div class="merch-container">
+    <div class="merch-item">
+      <a href="https://honeytrapsounds.bandcamp.com/merch/surfer-lady-t-shirt" target="_blank"><img src="assets/surfer.jpg" alt="Honey Trap white t-shirt with surfer design" class="merch-image"></a>
+      <a href="https://honeytrapsounds.bandcamp.com/merch/surfer-lady-t-shirt" target="_blank" class="notify-button">Order Surfer Tee</a>
+    </div>
+    <div class="merch-item">
+      <a href="https://honeytrapsounds.bandcamp.com/merch/honey-trap-t-shirt" target="_blank"><img src="assets/honey.jpg" alt="Honey Trap black t-shirt with logo" class="merch-image"></a>
+      <a href="https://honeytrapsounds.bandcamp.com/merch/honey-trap-t-shirt" target="_blank" class="notify-button">Order Honey Tee</a>
+    </div>
+    <div class="merch-item">
+      <a href="https://honeytrapsounds.bandcamp.com/album/you-never-hear-the-javelin-that-kills-you" target="_blank"><img src="assets/black-vinyl.png" alt="Honey Trap black vinyl record" class="merch-image"></a>
+      <a href="https://honeytrapsounds.bandcamp.com/album/you-never-hear-the-javelin-that-kills-you" target="_blank" class="notify-button">Order Black Vinyl</a>
+    </div>
+    <div class="merch-item">
+      <a href="https://honeytrapsounds.bandcamp.com/album/you-never-hear-the-javelin-that-kills-you" target="_blank"><img src="assets/blue-vinyl.png" alt="Honey Trap blue vinyl record" class="merch-image"></a>
+      <a href="https://honeytrapsounds.bandcamp.com/album/you-never-hear-the-javelin-that-kills-you" target="_blank" class="notify-button">Order Blue Vinyl</a>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="about-content">
+    <h2 class="section-title">About</h2>
+    <div class="about-text">
+      <p>Honey Trap is a three-piece band from Leeds.</p>
+      <p>We grew up together in a quiet village in Leicestershire, playing in pubs and wondering where music might one day take us. After finishing university, we decided to pursue our dreams and settled on Leeds as our base of operations.</p>
+      <p>To us, Honey Trap represents our freedom to create and explore the world through music. Along this journey we have discovered a love for busking — playing outside in the sun, bringing people together to dance and not charging a penny. It's so simple, and feels like the best way to rebel against all the modern entities that try so hard to suck the fun and spontaneity out of life.</p>
+      <p>Our music reflects this spirit: the sounds of freedom, with lyrics to make you laugh, cry, and lift the hairs on your neck. It's a place you can escape to whenever you like. And when you come to our show, we can escape together.</p>
+      <p class="band-members">
+        <span>Owen &mdash; Vocals, Drums</span>
+        <span>Aidan &mdash; Bass, BVs</span>
+        <span>Ben &mdash; Guitar, BVs</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="uploader" class="uploader">
+  <div class="uploader-content">
+    <h2 class="section-title">Uploader</h2>
+    <div class="uploader-box">
+      <p class="fu-sub">Got footage from a show? Send us your photos and videos straight from your phone. We post (nearly) everything that's sent!</p>
+      <form id="fu-form">
+        <div class="fu-row">
+          <div class="fu-field"><label for="fu-name">Your name</label><input type="text" id="fu-name" placeholder="First name" autocomplete="given-name"></div>
+          <div class="fu-field"><label for="fu-handle">Instagram / TikTok</label><input type="text" id="fu-handle" placeholder="@yourhandle"></div>
         </div>
-    </nav>
-    
-    <section class="hero">
-        <div class="hero-image">
-            <img src="" alt="Honey Trap" class="background-image" id="hero-background-image">
-            <div class="hero-overlay">
-                <h1 class="band-name">HONEY TRAP</h1>
-            </div>
-        </div>
-    </section>
-    
-    <section id="album" class="album-section">
-        <h2 class="section-title">The Debut Album!</h2>
-        <div class="album-announcement">
-            <a href="https://open.spotify.com/album/7MJxrFWo9WFckoZ0pkDp2U?si=m1_xuJl8QHGXsULVlq_L4Q" target="_blank">
-                <img src="assets/javelinalbum.jpg" alt="You Never Hear The Javelin That Kills You album art" class="album-art-image">
-            </a>
-            <h4>You Never Hear The Javelin That Kills You</h4>
-            <p class="album-meta"> Available Now </p>
-            <a href="#merch" class="notify-button">Buy Here</a>
-            <a href="https://open.spotify.com/album/7MJxrFWo9WFckoZ0pkDp2U?si=m1_xuJl8QHGXsULVlq_L4Q" class="notify-button">Listen Here</a>
-        </div>
-    </section>
-
-    <!-- ── GIG DATES SECTION ── -->
-    <section id="gigs">
-        <div class="gigs-content">
-            <h2 class="section-title">Gig Dates</h2>
-            <p class="gigs-info">   <br>
-                                    Keep an eye on our socials for exact busking times as these vary with the weather!
-                                    <br>
-                                    <br>
-            </p>
-            <div id="gigs-loading">Loading dates...</div>
-            <div id="gigs-empty">No upcoming gigs right now — check back soon.</div>
-            <div id="gigs-list"></div>
-        </div>
-    </section>
-    <!-- ── END GIG DATES ── -->
-
-    <section id="merch" class="album-section">
-        <h2 class="section-title">Merchandise</h2>
-        <div class="merch-container">
-            <div class="merch-item">
-                <a href="https://honeytrapsounds.bandcamp.com/merch/surfer-lady-t-shirt" target="_blank">
-                    <img src="assets/surfer.jpg" alt="Honey Trap white t-shirt with surfer design" class="merch-image">
-                </a>
-                <a href="https://honeytrapsounds.bandcamp.com/merch/surfer-lady-t-shirt" target="_blank" class="notify-button">Order Surfer Tee</a>
-            </div>
-            <div class="merch-item">
-                <a href="https://honeytrapsounds.bandcamp.com/merch/honey-trap-t-shirt" target="_blank">
-                    <img src="assets/honey.jpg" alt="Honey Trap black t-shirt with logo" class="merch-image">
-                </a>
-                <a href="https://honeytrapsounds.bandcamp.com/merch/honey-trap-t-shirt" target="_blank" class="notify-button">Order Honey Tee</a>
-            </div>
-            <div class="merch-item">
-                <a href="https://honeytrapsounds.bandcamp.com/album/you-never-hear-the-javelin-that-kills-you" target="_blank">
-                    <img src="assets/black-vinyl.png" alt="Honey Trap black vinyl record" class="merch-image">
-                </a>
-                <a href="https://honeytrapsounds.bandcamp.com/album/you-never-hear-the-javelin-that-kills-you" target="_blank" class="notify-button">Order Black Vinyl</a>
-            </div>
-            <div class="merch-item">
-                <a href="https://honeytrapsounds.bandcamp.com/album/you-never-hear-the-javelin-that-kills-you" target="_blank">
-                    <img src="assets/blue-vinyl.png" alt="Honey Trap blue vinyl record" class="merch-image">
-                </a>
-                <a href="https://honeytrapsounds.bandcamp.com/album/you-never-hear-the-javelin-that-kills-you" target="_blank" class="notify-button">Order Blue Vinyl</a>
-            </div>
-        </div>
-    </section>
-    
-    <section id="about" class="about">
-        <div class="about-content">
-            <h2 class="section-title">About</h2>
-            <div class="about-text">
-                <p>Honey Trap is a three-piece band from Leeds.</p>
-                
-                <p>We grew up together in a quiet village in Leicestershire, playing in pubs and wondering where music might one day take us. After finishing university, we decided to pursue our dreams and settled on Leeds as our base of operations.</p>
-
-                <p>To us, Honey Trap represents our freedom to create and explore the world through music. Along this journey we have discovered a love for busking — playing outside in the sun, bringing people together to dance and not charging a penny. It's so simple, and feels like the best way to rebel against all the modern entities that try so hard to suck the fun and spontaneity out of life.</p>
-
-                <p>Our music reflects this spirit: the sounds of freedom, with lyrics to make you laugh, cry, and lift the hairs on your neck. It's a place you can escape to whenever you like. And when you come to our show, we can escape together.</p>
-
-                <p class="band-members">
-                    <span>Owen &mdash; Vocals, Drums</span>
-                    <span>Aidan &mdash; Bass, BVs</span>
-                    <span>Ben &mdash; Guitar, BVs</span>
-                </p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- ── FAN UPLOADER SECTION ── -->
-    <section id="uploader" class="uploader">
-      <div class="uploader-content">
-        <h2 class="section-title">Uploader</h2>
-        <div class="uploader-box">
-          <p class="fu-sub">Got footage from a show? Send us your photos and videos straight from your phone. We post (nearly) everything thats sent!</p>
-
-          <form id="fu-form">
-            <div class="fu-row">
-              <div class="fu-field">
-                <label for="fu-name">Your name</label>
-                <input type="text" id="fu-name" placeholder="First name" autocomplete="given-name">
-              </div>
-              <div class="fu-field">
-                <label for="fu-handle">Instagram / TikTok</label>
-                <input type="text" id="fu-handle" placeholder="@yourhandle">
-              </div>
-            </div>
-
-            <label class="fu-dropzone" id="fu-dropzone">
-              <div class="fu-dz-title">Drop files here</div>
-              <div class="fu-dz-sub">or tap to browse — photos &amp; videos, any size</div>
-              <input type="file" id="fu-file-input" multiple accept="image/*,video/*">
-            </label>
-
-            <div class="fu-setlist" id="fu-setlist"></div>
-
-            <button type="submit" class="fu-send" id="fu-send-btn" disabled>Send to Honey Trap</button>
-            <div class="fu-status" id="fu-status"></div>
-          </form>
-
-          <div class="fu-done" id="fu-done">
-            <h4>Got it, thank you!</h4>
-            <p>We'll post it if we look sexy.</p>
-            <button class="fu-again" id="fu-send-more">Send more</button>
-          </div>
-        </div>
+        <label class="fu-dropzone" id="fu-dropzone">
+          <div class="fu-dz-title">Drop files here</div>
+          <div class="fu-dz-sub">or tap to browse — photos &amp; videos, any size</div>
+          <input type="file" id="fu-file-input" multiple accept="image/*,video/*">
+        </label>
+        <div class="fu-setlist" id="fu-setlist"></div>
+        <button type="submit" class="fu-send" id="fu-send-btn" disabled>Send to Honey Trap</button>
+        <div class="fu-status" id="fu-status"></div>
+      </form>
+      <div class="fu-done" id="fu-done">
+        <h4>Got it, thank you!</h4>
+        <p>We'll post it if we look sexy.</p>
+        <button class="fu-again" id="fu-send-more">Send more</button>
       </div>
-    </section>
-    <!-- ── END FAN UPLOADER SECTION ── -->
+    </div>
+  </div>
+</section>
 
-    <section id="contact" class="contact">
-      <div class="contact-content">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-info">
-          <p class="subscribe-text">Subscribe to our newsletter for music, merch and gig dates.</p>
+<section id="contact" class="contact">
+  <div class="contact-content">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-info">
+      <p class="subscribe-text">Subscribe to our newsletter for music, merch and gig dates.</p>
 
-          <!-- MailerLite embedded form -->
-          <div id="mlb2-43515916" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-43515916">
-            <div class="ml-form-align-center">
-              <div class="ml-form-embedWrapper embedForm">
-
-                <div class="ml-form-embedBody ml-form-embedBodyHorizontal row-form">
-                  <form class="ml-block-form"
-                        action="https://assets.mailerlite.com/jsonp/2497424/forms/192425545374369270/subscribe"
-                        data-code=""
-                        method="post"
-                        target="_blank">
-
-                    <div class="ml-form-formContent horozintalForm">
-                      <div class="ml-form-horizontalRow">
-                        <div class="ml-input-horizontal">
-                          <div style="width: 100%;" class="horizontal-fields">
-                            <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                              <input type="email"
-                                     class="form-control"
-                                     name="fields[email]"
-                                     placeholder="Enter your email"
-                                     autocomplete="email"
-                                     required>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="ml-button-horizontal primary">
-                          <button type="submit" class="primary">Subscribe</button>
-                          <button disabled style="display: none;" type="button" class="loading">
-                            <div class="ml-form-embedSubmitLoad"></div>
-                            <span class="sr-only">Loading...</span>
-                          </button>
+      <div id="mlb2-43515916" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-43515916">
+        <div class="ml-form-align-center">
+          <div class="ml-form-embedWrapper embedForm">
+            <div class="ml-form-embedBody ml-form-embedBodyHorizontal row-form">
+              <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2497424/forms/192425545374369270/subscribe" data-code="" method="post" target="_blank">
+                <div class="ml-form-formContent horozintalForm">
+                  <div class="ml-form-horizontalRow">
+                    <div class="ml-input-horizontal">
+                      <div style="width:100%" class="horizontal-fields">
+                        <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                          <input type="email" class="form-control" name="fields[email]" placeholder="Enter your email" autocomplete="email" required>
                         </div>
                       </div>
                     </div>
-
-                    <input type="hidden" name="ml-submit" value="1">
-
-                    <div class="ml-mobileButton-horizontal">
+                    <div class="ml-button-horizontal primary">
                       <button type="submit" class="primary">Subscribe</button>
-                      <button disabled style="display: none;" type="button" class="loading">
-                        <div class="ml-form-embedSubmitLoad"></div>
-                        <span class="sr-only">Loading...</span>
-                      </button>
+                      <button disabled style="display:none" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span></button>
                     </div>
-                    <input type="hidden" name="anticsrf" value="true">
-                  </form>
-                </div>
-
-                <div class="ml-form-successBody row-success" style="display: none">
-                  <div class="ml-form-successContent">
-                    <h4>Thank you!</h4>
-                    <p>You have successfully joined our subscriber list.</p>
                   </div>
                 </div>
-
-              </div>
+                <input type="hidden" name="ml-submit" value="1">
+                <div class="ml-mobileButton-horizontal">
+                  <button type="submit" class="primary">Subscribe</button>
+                  <button disabled style="display:none" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span></button>
+                </div>
+                <input type="hidden" name="anticsrf" value="true">
+              </form>
+            </div>
+            <div class="ml-form-successBody row-success" style="display:none">
+              <div class="ml-form-successContent"><h4>Thank you!</h4><p>You have successfully joined our subscriber list.</p></div>
             </div>
           </div>
-
-          <script>
-            function ml_webform_success_43515916() {
-              var $ = ml_jQuery || jQuery;
-              $('.ml-subscribe-form-43515916 .row-success').show();
-              $('.ml-subscribe-form-43515916 .row-form').hide();
-            }
-          </script>
-          <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
-          <script>fetch("https://assets.mailerlite.com/jsonp/2497424/forms/192425545374369270/takel")</script>
-          <!-- End MailerLite embed -->
-
-          <p class="enquiries">To say hello, email us at:<br>
-            <a href="mailto:honeytrapsounds@gmail.com">honeytrapsounds@gmail.com</a><br>
-          </p>
         </div>
       </div>
-    </section>
+      <script>
+        function ml_webform_success_43515916(){var $=ml_jQuery||jQuery;$('.ml-subscribe-form-43515916 .row-success').show();$('.ml-subscribe-form-43515916 .row-form').hide();}
+      </script>
+      <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
+      <script>fetch("https://assets.mailerlite.com/jsonp/2497424/forms/192425545374369270/takel")</script>
 
-    <footer>
-        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-            <tr>
-                <td align="center" style="background-color: #3C2A1E; padding: 30px 20px;">
-                    
-                    <table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 20px;">
-                        <tr>
-                            <td style="padding: 0 12px;">
-                                <a href="https://instagram.com/honeytrapsounds" target="_blank" aria-label="Instagram">
-                                    <img src="https://img.icons8.com/ios-filled/50/F7F3E9/instagram-new.png" alt="Instagram" width="26" height="26">
-                                </a>
-                            </td>
-                            <td style="padding: 0 12px;">
-                                <a href="https://open.spotify.com/artist/3urpGnVmKgiaJygp1YAKNz" target="_blank" aria-label="Spotify">
-                                     <img src="https://img.icons8.com/ios-filled/50/F7F3E9/spotify.png" alt="Spotify" width="26" height="26">
-                                </a>
-                            </td>
-                            <td style="padding: 0 12px;">
-                                <a href="https://music.apple.com/gb/artist/honey-trap/1530720356" target="_blank" aria-label="Apple Music">
-                                     <img src="https://img.icons8.com/ios-filled/50/F7F3E9/apple-music.png" alt="Apple Music" width="26" height="26">
-                                </a>
-                            </td>
-                            <td style="padding: 0 12px;">
-                                <a href="https://www.youtube.com/@honeytrapsounds" target="_blank" aria-label="YouTube">
-                                     <img src="https://img.icons8.com/ios-filled/50/F7F3E9/youtube-play.png" alt="YouTube" width="26" height="26">
-                                </a>
-                            </td>
-                            <td style="padding: 0 12px;">
-                                <a href="https://honeytrapsounds.bandcamp.com/" target="_blank" aria-label="Bandcamp">
-                                     <img src="https://img.icons8.com/ios-filled/50/F7F3E9/bandcamp.png" alt="Bandcamp" width="26" height="26">
-                                </a>
-                            </td>
-                        </tr>
-                    </table>
-    
-                    <p style="font-family: 'Crimson Text', serif; font-size: 14px; color: #F7F3E9; margin: 0;">
-                        © 2026 Honey Trap. All rights reserved.
-                    </p>
+      <p class="enquiries">To say hello, email us at:<br><a href="mailto:honeytrapsounds@gmail.com">honeytrapsounds@gmail.com</a></p>
+    </div>
+  </div>
+</section>
 
-                    <p style="font-family: 'Crimson Text', serif; font-size: 13px; color: #F7F3E9; margin: 12px 0 0;">
-                        <a href="/privacy.html" style="color: #B8860B; text-decoration: none;">Privacy Policy</a>
-                        &nbsp;&middot;&nbsp;
-                        <a href="/terms.html" style="color: #B8860B; text-decoration: none;">Terms of Service</a>
-                    </p>
-    
-                </td>
-            </tr>
-        </table>
-    </footer>
+<footer>
+  <div class="social-row">
+    <a href="https://instagram.com/honeytrapsounds" target="_blank" aria-label="Instagram"><img src="https://img.icons8.com/ios-filled/50/F7F3E9/instagram-new.png" alt="Instagram" width="26" height="26"></a>
+    <a href="https://open.spotify.com/artist/3urpGnVmKgiaJygp1YAKNz" target="_blank" aria-label="Spotify"><img src="https://img.icons8.com/ios-filled/50/F7F3E9/spotify.png" alt="Spotify" width="26" height="26"></a>
+    <a href="https://music.apple.com/gb/artist/honey-trap/1530720356" target="_blank" aria-label="Apple Music"><img src="https://img.icons8.com/ios-filled/50/F7F3E9/apple-music.png" alt="Apple Music" width="26" height="26"></a>
+    <a href="https://www.youtube.com/@honeytrapsounds" target="_blank" aria-label="YouTube"><img src="https://img.icons8.com/ios-filled/50/F7F3E9/youtube-play.png" alt="YouTube" width="26" height="26"></a>
+    <a href="https://honeytrapsounds.bandcamp.com/" target="_blank" aria-label="Bandcamp"><img src="https://img.icons8.com/ios-filled/50/F7F3E9/bandcamp.png" alt="Bandcamp" width="26" height="26"></a>
+  </div>
+  <p>© 2026 Honey Trap. All rights reserved.</p>
+  <p class="footer-links"><a href="/privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="/terms.html">Terms of Service</a></p>
+</footer>
+<img src="assets/footer.jpg" alt="Honey Trap" class="footer-image">
 
-    <img src="assets/footer.jpg" alt="Honey Trap" class="footer-image">
+<!-- First-visit subscribe popup -->
+<div class="ht-pop" id="ht-pop" role="dialog" aria-modal="true" aria-labelledby="ht-pop-title">
+  <div class="ht-pop-card" id="ht-pop-card">
+    <button class="ht-pop-close" id="ht-pop-close" aria-label="Close">&times;</button>
+    <div class="ht-pop-formwrap">
+      <h3 id="ht-pop-title">Join the Honey Trap list</h3>
+      <p>Subscribe to our newsletter for music, merch and gig dates.</p>
+      <form id="ht-pop-form" action="https://assets.mailerlite.com/jsonp/2497424/forms/192425545374369270/subscribe" method="post" target="ht-pop-frame">
+        <input type="email" name="fields[email]" placeholder="Enter your email" autocomplete="email" required>
+        <input type="hidden" name="ml-submit" value="1">
+        <input type="hidden" name="anticsrf" value="true">
+        <button type="submit" class="ht-submit">Subscribe</button>
+      </form>
+      <button class="ht-pop-skip" id="ht-pop-skip" type="button">No thanks</button>
+    </div>
+    <div class="ht-pop-thanks"><h3>Thank you!</h3><p>You have successfully joined our subscriber list.</p></div>
+  </div>
+  <iframe name="ht-pop-frame" id="ht-pop-frame" title="" style="display:none" tabindex="-1" aria-hidden="true"></iframe>
+</div>
 
-    <script>
-    // ── gigs DATES FROM GOOGLE SHEETS ──
-    const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/11gUte5KqPRDkyx4M_YAyT3YBZJvNTKzE9XQ-KX8G-FI/export?format=csv&gid=0';
+<script>
+// ── Nav + hero ──
+var menuToggle = document.getElementById('menu-toggle');
+var navLinks = document.getElementById('nav-links');
+menuToggle.addEventListener('click', function(){
+  var open = navLinks.classList.toggle('mobile-open');
+  menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click', function(e){
+    e.preventDefault();
+    var t = document.querySelector(this.getAttribute('href'));
+    if (t) t.scrollIntoView({behavior:'smooth', block:'start'});
+    navLinks.classList.remove('mobile-open');
+    menuToggle.setAttribute('aria-expanded','false');
+  });
+});
+var CAROUSEL_IMAGES = ['assets/carousel1.jpg','assets/carousel2.jpg','assets/carousel3.jpg','assets/carousel4.jpg','assets/carousel5.jpg','assets/carousel6.jpg'];
+document.getElementById('hero-background-image').src = CAROUSEL_IMAGES[Math.floor(Math.random()*CAROUSEL_IMAGES.length)];
 
-    // Re-applies the URL's hash scroll target once late-arriving content
-    // (like the async gig list) has finished changing the page's layout.
-    // Without this, a direct link such as /#contact can land correctly for
-    // a moment and then get silently shifted off-target when the gigs
-    // section grows taller above it.
-    function restoreHashScroll() {
-        if (!location.hash) return;
-        let target;
-        try {
-            target = document.querySelector(location.hash);
-        } catch (e) {
-            return;
-        }
-        if (target) {
-            target.scrollIntoView({ behavior: 'auto', block: 'start' });
-        }
+// ── Gig dates from Google Sheets ──
+var SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/11gUte5KqPRDkyx4M_YAyT3YBZJvNTKzE9XQ-KX8G-FI/export?format=csv&gid=0';
+function restoreHashScroll(){
+  if (!location.hash) return;
+  var t; try { t = document.querySelector(location.hash); } catch(e){ return; }
+  if (t) t.scrollIntoView({behavior:'auto', block:'start'});
+}
+function escHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function parseCSV(text){
+  return text.trim().split('\n').map(function(line){
+    var f=[], cur='', q=false;
+    for (var i=0;i<line.length;i++){
+      var ch=line[i];
+      if (ch==='"') q=!q;
+      else if (ch===',' && !q){ f.push(cur.trim()); cur=''; }
+      else cur+=ch;
     }
-
-    async function loadgigsDates() {
-        const loadingEl = document.getElementById('gigs-loading');
-        const emptyEl   = document.getElementById('gigs-empty');
-        const listEl    = document.getElementById('gigs-list');
-        try {
-            const res = await fetch(SHEET_CSV_URL, { mode: 'cors' });
-            const text = await res.text();
-            const rows = parseCSV(text);
-            if (rows.length < 2) { showEmpty(); return; }
-            const headers = rows[0].map(h => h.trim().toLowerCase());
-            const dateIdx     = headers.indexOf('date');
-            const eventIdx    = headers.indexOf('event');
-            const locationIdx = headers.indexOf('location');
-            const ticketsIdx  = headers.indexOf('tickets');
-            const buttonIdx   = headers.indexOf('button');
-            const today = new Date();
-            today.setHours(0, 0, 0, 0);
-            const upcoming = rows.slice(1).filter(row => {
-                if (!row[dateIdx]) return false;
-                const d = new Date(row[dateIdx]);
-                return isNaN(d) || d >= today;
-            });
-            if (upcoming.length === 0) { showEmpty(); return; }
-            loadingEl.style.display = 'none';
-            upcoming.forEach(row => {
-                const date       = row[dateIdx]     || '';
-                const event      = row[eventIdx]    || '';
-                const location   = row[locationIdx] || '';
-                const tickets    = row[ticketsIdx]  || '';
-                const buttonText = (buttonIdx !== -1 && row[buttonIdx]) ? row[buttonIdx] : 'Tickets';
-                const ticketHTML = tickets
-                    ? `<a href="${escHtml(tickets)}" target="_blank" class="gigs-ticket-btn">${escHtml(buttonText)}</a>`
-                    : `<span class="gigs-ticket-btn sold-out">TBA</span>`;
-                const rowEl = document.createElement('div');
-                rowEl.className = 'gigs-row';
-                rowEl.innerHTML = `
-                    <div class="gigs-date">${escHtml(date)}</div>
-                    <div class="gigs-info">
-                        <div class="gigs-event">${escHtml(event)}</div>
-                        <div class="gigs-location">${escHtml(location)}</div>
-                    </div>
-                    <div>${ticketHTML}</div>
-                `;
-                listEl.appendChild(rowEl);
-            });
-        } catch (err) {
-            console.error('gigs dates error:', err);
-            showEmpty();
-        }
-        // Layout has now settled (rows added or empty-state shown) —
-        // correct the scroll position if the page was loaded with a hash.
-        restoreHashScroll();
-        function showEmpty() {
-            loadingEl.style.display = 'none';
-            emptyEl.style.display   = 'block';
-        }
-    }
-    function parseCSV(text) {
-        return text.trim().split('\n').map(line => {
-            const fields = [];
-            let cur = '', inQuote = false;
-            for (let i = 0; i < line.length; i++) {
-                const ch = line[i];
-                if (ch === '"') { inQuote = !inQuote; }
-                else if (ch === ',' && !inQuote) { fields.push(cur.trim()); cur = ''; }
-                else { cur += ch; }
-            }
-            fields.push(cur.trim());
-            return fields;
+    f.push(cur.trim());
+    return f;
+  });
+}
+async function loadGigDates(){
+  var loadingEl=document.getElementById('gigs-loading'), emptyEl=document.getElementById('gigs-empty'), listEl=document.getElementById('gigs-list');
+  function showEmpty(){ loadingEl.style.display='none'; emptyEl.style.display='block'; }
+  try {
+    var res = await fetch(SHEET_CSV_URL, {mode:'cors'});
+    var rows = parseCSV(await res.text());
+    if (rows.length < 2){ showEmpty(); }
+    else {
+      var h = rows[0].map(function(x){ return x.trim().toLowerCase(); });
+      var di=h.indexOf('date'), ei=h.indexOf('event'), li=h.indexOf('location'), ti=h.indexOf('tickets'), bi=h.indexOf('button');
+      var today=new Date(); today.setHours(0,0,0,0);
+      var upcoming = rows.slice(1).filter(function(r){
+        if (!r[di]) return false;
+        var d=new Date(r[di]);
+        return isNaN(d) || d>=today;
+      });
+      if (!upcoming.length){ showEmpty(); }
+      else {
+        loadingEl.style.display='none';
+        upcoming.forEach(function(r){
+          var tickets=r[ti]||'', btn=(bi!==-1 && r[bi]) ? r[bi] : 'Tickets';
+          var tHTML = tickets ? '<a href="'+escHtml(tickets)+'" target="_blank" class="gigs-ticket-btn">'+escHtml(btn)+'</a>' : '<span class="gigs-ticket-btn sold-out">TBA</span>';
+          var row=document.createElement('div');
+          row.className='gigs-row';
+          row.innerHTML='<div class="gigs-date">'+escHtml(r[di]||'')+'</div><div class="gigs-info"><div class="gigs-event">'+escHtml(r[ei]||'')+'</div><div class="gigs-location">'+escHtml(r[li]||'')+'</div></div><div>'+tHTML+'</div>';
+          listEl.appendChild(row);
         });
+      }
     }
-    function escHtml(str) {
-        return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-    }
-    loadgigsDates();
+  } catch(err){ console.error('gig dates error:', err); showEmpty(); }
+  restoreHashScroll();
+}
+loadGigDates();
+</script>
 
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-            // Close the mobile menu after choosing a link
-            navLinks.classList.remove('mobile-open');
-            menuToggle.setAttribute('aria-expanded', 'false');
-        });
+<script>
+// ── Fan uploader ──
+(function(){
+  var API_BASE='https://uploader-ten-taupe.vercel.app/', CHUNK_SIZE=8*1024*1024;
+  var queue=[], idCounter=0;
+  var dropzone=document.getElementById('fu-dropzone'), fileInput=document.getElementById('fu-file-input'),
+      setlist=document.getElementById('fu-setlist'), sendBtn=document.getElementById('fu-send-btn'),
+      statusLine=document.getElementById('fu-status'), form=document.getElementById('fu-form'), doneScreen=document.getElementById('fu-done');
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  ['dragenter','dragover'].forEach(function(ev){ dropzone.addEventListener(ev,function(e){ e.preventDefault(); dropzone.classList.add('fu-drag'); }); });
+  ['dragleave','drop'].forEach(function(ev){ dropzone.addEventListener(ev,function(e){ e.preventDefault(); dropzone.classList.remove('fu-drag'); }); });
+  dropzone.addEventListener('drop',function(e){ addFiles(e.dataTransfer.files); });
+  fileInput.addEventListener('change',function(e){ addFiles(e.target.files); fileInput.value=''; });
+
+  function addFiles(list){
+    Array.prototype.forEach.call(list,function(file){ queue.push({file:file,id:'fu'+(idCounter++),progress:0,status:'queued'}); });
+    renderQueue(); updateSendButton();
+  }
+  function fmtSize(b){ if(b>1e9) return (b/1e9).toFixed(1)+' GB'; if(b>1e6) return (b/1e6).toFixed(1)+' MB'; return Math.round(b/1e3)+' KB'; }
+  function renderQueue(){
+    setlist.innerHTML='';
+    queue.forEach(function(item){
+      var el=document.createElement('div'); el.className='fu-track';
+      el.innerHTML='<div class="fu-track-body"><div class="fu-track-name">'+esc(item.file.name)+'</div><div class="fu-track-bar"><div class="fu-track-bar-fill'+(item.status==='error'?' fu-error':'')+'" style="width:'+item.progress+'%"></div></div></div><div class="fu-track-size">'+fmtSize(item.file.size)+'</div><div class="fu-track-status">'+(item.status==='done'?'✓':(item.status==='error'?'!':''))+'</div>';
+      setlist.appendChild(el);
     });
-
-    // ── HERO IMAGE: pick a random carousel photo on every load ──
-    const CAROUSEL_IMAGES = [
-        'assets/carousel1.jpg',
-        'assets/carousel2.jpg',
-        'assets/carousel3.jpg',
-        'assets/carousel4.jpg',
-        'assets/carousel5.jpg',
-        'assets/carousel6.jpg'
-    ];
-    const heroImage = document.getElementById('hero-background-image');
-    const randomImage = CAROUSEL_IMAGES[Math.floor(Math.random() * CAROUSEL_IMAGES.length)];
-    heroImage.src = randomImage;
-
-    // ── MOBILE MENU TOGGLE ──
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    menuToggle.addEventListener('click', () => {
-        const isOpen = navLinks.classList.toggle('mobile-open');
-        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+  function updateSendButton(){ sendBtn.disabled = queue.length===0 || queue.some(function(q){ return q.status==='uploading'; }); }
+  function setTrackProgress(id,p,s){
+    var item=queue.find(function(q){ return q.id===id; });
+    if(!item) return; item.progress=p; if(s) item.status=s; renderQueue();
+  }
+  function buildTitleFilename(orig,name,handle,suffix){
+    var i=orig.lastIndexOf('.'), ext=i>-1?orig.slice(i):'', title;
+    if(name&&handle) title=name+' - '+handle; else if(name) title=name; else if(handle) title=handle; else return orig;
+    return title+(suffix||'')+ext;
+  }
+  function createSession(item,fname){
+    return fetch(API_BASE+'api/create-upload-session',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({filename:fname,mimeType:item.file.type||'application/octet-stream',size:item.file.size,
+        submitter:document.getElementById('fu-name').value.trim(),handle:document.getElementById('fu-handle').value.trim()})
+    }).then(function(r){ if(!r.ok) throw new Error('Could not start upload session'); return r.json(); }).then(function(d){ return d.uploadUrl; });
+  }
+  function uploadInChunks(item,uploadUrl){
+    return new Promise(function(resolve,reject){
+      var file=item.file,total=file.size,offset=0;
+      function next(){
+        var end=Math.min(offset+CHUNK_SIZE,total), chunk=file.slice(offset,end), xhr=new XMLHttpRequest();
+        xhr.open('PUT',uploadUrl,true);
+        xhr.setRequestHeader('Content-Range','bytes '+offset+'-'+(end-1)+'/'+total);
+        xhr.upload.onprogress=function(e){ setTrackProgress(item.id,Math.min(99,Math.round(((offset+e.loaded)/total)*100)),'uploading'); };
+        xhr.onload=function(){
+          if(xhr.status===308){ offset=end; if(offset<total) next(); else { setTrackProgress(item.id,100,'done'); resolve(); } }
+          else if(xhr.status===200||xhr.status===201){ setTrackProgress(item.id,100,'done'); resolve(); }
+          else { setTrackProgress(item.id,item.progress,'error'); reject(new Error('Upload failed '+xhr.status)); }
+        };
+        xhr.onerror=function(){ setTrackProgress(item.id,item.progress,'error'); reject(new Error('Network error')); };
+        xhr.send(chunk);
+      }
+      next();
     });
-    </script>
-
-    <!-- ── FAN UPLOADER SCRIPT — isolated in its own IIFE ── -->
-    <script>
-    (function(){
-      var API_BASE = 'https://uploader-ten-taupe.vercel.app/';
-      var CHUNK_SIZE = 8 * 1024 * 1024;
-
-      var queue = [];
-      var idCounter = 0;
-
-      var dropzone = document.getElementById('fu-dropzone');
-      var fileInput = document.getElementById('fu-file-input');
-      var setlist = document.getElementById('fu-setlist');
-      var sendBtn = document.getElementById('fu-send-btn');
-      var statusLine = document.getElementById('fu-status');
-      var form = document.getElementById('fu-form');
-      var doneScreen = document.getElementById('fu-done');
-
-      ['dragenter','dragover'].forEach(function(evt){
-        dropzone.addEventListener(evt, function(e){ e.preventDefault(); dropzone.classList.add('fu-drag'); });
+  }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!queue.length) return;
+    sendBtn.disabled=true; statusLine.textContent=''; statusLine.classList.remove('fu-error');
+    var chain=Promise.resolve(), hadError=false;
+    var name=document.getElementById('fu-name').value.trim(), handle=document.getElementById('fu-handle').value.trim();
+    var pending=queue.filter(function(q){ return q.status!=='done'; });
+    queue.forEach(function(item){
+      if(item.status==='done') return;
+      var suffix=pending.length>1?' ('+(pending.indexOf(item)+1)+')':'';
+      var fname=buildTitleFilename(item.file.name,name,handle,suffix);
+      chain=chain.then(function(){
+        setTrackProgress(item.id,1,'uploading');
+        return createSession(item,fname).then(function(u){ return uploadInChunks(item,u); })
+          .catch(function(){ hadError=true; setTrackProgress(item.id,item.progress,'error'); });
       });
-      ['dragleave','drop'].forEach(function(evt){
-        dropzone.addEventListener(evt, function(e){ e.preventDefault(); dropzone.classList.remove('fu-drag'); });
-      });
-      dropzone.addEventListener('drop', function(e){ addFiles(e.dataTransfer.files); });
-      fileInput.addEventListener('change', function(e){ addFiles(e.target.files); fileInput.value=''; });
+    });
+    chain.then(function(){
+      if(hadError){ statusLine.textContent="Some files didn't make it through — check your connection and hit send again."; statusLine.classList.add('fu-error'); updateSendButton(); }
+      else { form.style.display='none'; doneScreen.classList.add('fu-show'); }
+    });
+  });
+  document.getElementById('fu-send-more').addEventListener('click',function(){
+    queue=[]; renderQueue(); updateSendButton(); form.reset(); doneScreen.classList.remove('fu-show'); form.style.display='block';
+  });
+})();
+</script>
 
-      function addFiles(fileList){
-        Array.prototype.forEach.call(fileList, function(file){
-          queue.push({ file: file, id: 'fu'+(idCounter++), progress: 0, status: 'queued' });
-        });
-        renderQueue();
-        updateSendButton();
-      }
-
-      function fmtSize(bytes){
-        if (bytes > 1e9) return (bytes/1e9).toFixed(1) + ' GB';
-        if (bytes > 1e6) return (bytes/1e6).toFixed(1) + ' MB';
-        return Math.round(bytes/1e3) + ' KB';
-      }
-
-      function renderQueue(){
-        setlist.innerHTML = '';
-        queue.forEach(function(item){
-          var el = document.createElement('div');
-          el.className = 'fu-track';
-          el.innerHTML =
-            '<div class="fu-track-body">' +
-              '<div class="fu-track-name">' + item.file.name + '</div>' +
-              '<div class="fu-track-bar"><div class="fu-track-bar-fill' + (item.status==='error' ? ' fu-error' : '') + '" style="width:' + item.progress + '%"></div></div>' +
-            '</div>' +
-            '<div class="fu-track-size">' + fmtSize(item.file.size) + '</div>' +
-            '<div class="fu-track-status">' + (item.status==='done' ? '✓' : (item.status==='error' ? '!' : '')) + '</div>';
-          setlist.appendChild(el);
-        });
-      }
-
-      function updateSendButton(){
-        sendBtn.disabled = queue.length === 0 || queue.some(function(q){ return q.status === 'uploading'; });
-      }
-
-      function setTrackProgress(id, progress, status){
-        var item = queue.find(function(q){ return q.id === id; });
-        if (!item) return;
-        item.progress = progress;
-        if (status) item.status = status;
-        renderQueue();
-      }
-
-      // Builds the "Name - @handle" title and turns it into a filename,
-      // keeping the original extension. Falls back gracefully if the
-      // fan left one or both fields blank. `suffix` disambiguates
-      // multiple files in the same batch (e.g. " (2)").
-      function buildTitleFilename(originalName, name, handle, suffix){
-        var dotIndex = originalName.lastIndexOf('.');
-        var ext = dotIndex > -1 ? originalName.slice(dotIndex) : '';
-
-        var title;
-        if (name && handle) title = name + ' - ' + handle;
-        else if (name) title = name;
-        else if (handle) title = handle;
-        else return originalName; // nothing to go on, keep the original name
-
-        return title + (suffix || '') + ext;
-      }
-
-      function createSession(item, titleFilename){
-        return fetch(API_BASE + 'api/create-upload-session', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            filename: titleFilename,
-            mimeType: item.file.type || 'application/octet-stream',
-            size: item.file.size,
-            submitter: document.getElementById('fu-name').value.trim(),
-            handle: document.getElementById('fu-handle').value.trim(),
-            // note: document.getElementById('fu-note').value.trim()
-          })
-        }).then(function(res){
-          if (!res.ok) throw new Error('Could not start upload session');
-          return res.json();
-        }).then(function(data){ return data.uploadUrl; });
-      }
-
-      function uploadInChunks(item, uploadUrl){
-        return new Promise(function(resolve, reject){
-          var file = item.file;
-          var total = file.size;
-          var offset = 0;
-
-          function sendNextChunk(){
-            var end = Math.min(offset + CHUNK_SIZE, total);
-            var chunk = file.slice(offset, end);
-            var xhr = new XMLHttpRequest();
-            xhr.open('PUT', uploadUrl, true);
-            xhr.setRequestHeader('Content-Range', 'bytes ' + offset + '-' + (end-1) + '/' + total);
-
-            xhr.upload.onprogress = function(e){
-              var uploadedSoFar = offset + e.loaded;
-              setTrackProgress(item.id, Math.min(99, Math.round((uploadedSoFar/total)*100)), 'uploading');
-            };
-            xhr.onload = function(){
-              if (xhr.status === 308){
-                offset = end;
-                if (offset < total) { sendNextChunk(); }
-                else { setTrackProgress(item.id, 100, 'done'); resolve(); }
-              } else if (xhr.status === 200 || xhr.status === 201){
-                setTrackProgress(item.id, 100, 'done'); resolve();
-              } else {
-                setTrackProgress(item.id, item.progress, 'error');
-                reject(new Error('Upload failed with status ' + xhr.status));
-              }
-            };
-            xhr.onerror = function(){
-              setTrackProgress(item.id, item.progress, 'error');
-              reject(new Error('Network error during upload'));
-            };
-            xhr.send(chunk);
-          }
-          sendNextChunk();
-        });
-      }
-
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        if (queue.length === 0) return;
-        sendBtn.disabled = true;
-        statusLine.textContent = '';
-        statusLine.classList.remove('fu-error');
-
-        var chain = Promise.resolve();
-        var hadError = false;
-
-        var name = document.getElementById('fu-name').value.trim();
-        var handle = document.getElementById('fu-handle').value.trim();
-        var pending = queue.filter(function(q){ return q.status !== 'done'; });
-
-        queue.forEach(function(item){
-          if (item.status === 'done') return;
-          var indexInBatch = pending.indexOf(item);
-          var suffix = pending.length > 1 ? ' (' + (indexInBatch + 1) + ')' : '';
-          var titleFilename = buildTitleFilename(item.file.name, name, handle, suffix);
-
-          chain = chain.then(function(){
-            setTrackProgress(item.id, 1, 'uploading');
-            return createSession(item, titleFilename)
-              .then(function(uploadUrl){ return uploadInChunks(item, uploadUrl); })
-              .catch(function(){
-                hadError = true;
-                setTrackProgress(item.id, item.progress, 'error');
-              });
-          });
-        });
-
-        chain.then(function(){
-          if (hadError){
-            statusLine.textContent = "Some files didn't make it through — check your connection and hit send again.";
-            statusLine.classList.add('fu-error');
-            updateSendButton();
-          } else {
-            form.style.display = 'none';
-            doneScreen.classList.add('fu-show');
-          }
-        });
-      });
-
-      document.getElementById('fu-send-more').addEventListener('click', function(){
-        queue = [];
-        renderQueue();
-        updateSendButton();
-        form.reset();
-        doneScreen.classList.remove('fu-show');
-        form.style.display = 'block';
-      });
-    })();
-    </script>
+<script>
+// ── First-visit subscribe popup ──
+(function(){
+  var KEY='ht_subscribe_popup_seen';
+  var pop=document.getElementById('ht-pop'), card=document.getElementById('ht-pop-card'),
+      form=document.getElementById('ht-pop-form'), frame=document.getElementById('ht-pop-frame'), submitted=false;
+  function seen(){ try{ return localStorage.getItem(KEY)==='1'; }catch(e){ return false; } }
+  function remember(){ try{ localStorage.setItem(KEY,'1'); }catch(e){} }
+  function open(){
+    pop.classList.add('ht-show');
+    requestAnimationFrame(function(){ pop.classList.add('ht-in'); });
+    setTimeout(function(){ var i=form.querySelector('input[type=email]'); if(i) i.focus({preventScroll:true}); },400);
+  }
+  function close(){ remember(); pop.classList.remove('ht-in'); setTimeout(function(){ pop.classList.remove('ht-show'); },350); }
+  document.getElementById('ht-pop-close').addEventListener('click',close);
+  document.getElementById('ht-pop-skip').addEventListener('click',close);
+  pop.addEventListener('click',function(e){ if(e.target===pop) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&pop.classList.contains('ht-show')) close(); });
+  form.addEventListener('submit',function(){ submitted=true; remember(); });
+  frame.addEventListener('load',function(){ if(!submitted) return; card.classList.add('ht-done'); setTimeout(close,2500); });
+  if(!seen()) setTimeout(open,2500);
+})();
+</script>
 </body>
 </html>
